@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,13 +37,17 @@ import java.util.Map;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
  * Pack Support: L2JDP
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class Configurations
 {
@@ -91,7 +95,7 @@ public class Configurations
 	// set l2topgameserver global reward variables
 	public static boolean L2TOPGAMESERVER_GLOBAL_REWARD;
 	public static String L2TOPGAMESERVER_API_KEY;
-	public static int L2TOPGAMESERVER_VOTE_CHECK_DELAY;
+	public static long L2TOPGAMESERVER_VOTE_CHECK_DELAY;
 	public static boolean L2TOPGAMESERVER_ANNOUNCE_STATISTICS;
 	public static int L2TOPGAMESERVER_VOTE_STEP;
 	public static Map<Integer, List<Integer[]>> L2TOPGAMESERVER_GLOBAL_REWARDS = new HashMap<>();
@@ -102,7 +106,7 @@ public class Configurations
 	// set l2jbrasil global reward variables
 	public static boolean L2JBRASIL_GLOBAL_REWARD;
 	public static String L2JBRASIL_USER_NAME;
-	public static int L2JBRASIL_VOTE_CHECK_DELAY;
+	public static long L2JBRASIL_VOTE_CHECK_DELAY;
 	public static boolean L2JBRASIL_ANNOUNCE_STATISTICS;
 	public static int L2JBRASIL_VOTE_STEP;
 	public static Map<Integer, List<Integer[]>> L2JBRASIL_GLOBAL_REWARDS = new HashMap<>();
@@ -114,7 +118,7 @@ public class Configurations
 	public static boolean L2NETWORK_GLOBAL_REWARD;
 	public static String L2NETWORK_API_KEY;
 	public static String L2NETWORK_USER_NAME;
-	public static int L2NETWORK_VOTE_CHECK_DELAY;
+	public static long L2NETWORK_VOTE_CHECK_DELAY;
 	public static boolean L2NETWORK_ANNOUNCE_STATISTICS;
 	public static int L2NETWORK_VOTE_STEP;
 	public static Map<Integer, List<Integer[]>> L2NETWORK_GLOBAL_REWARDS = new HashMap<>();
@@ -127,7 +131,7 @@ public class Configurations
 	public static String L2TOPSERVERS_API_KEY;
 	public static String L2TOPSERVERS_SERVER_ID;
 	public static String L2TOPSERVERS_SERVER_NAME;
-	public static int L2TOPSERVERS_VOTE_CHECK_DELAY;
+	public static long L2TOPSERVERS_VOTE_CHECK_DELAY;
 	public static boolean L2TOPSERVERS_ANNOUNCE_STATISTICS;
 	public static int L2TOPSERVERS_VOTE_STEP;
 	public static Map<Integer, List<Integer[]>> L2TOPSERVERS_GLOBAL_REWARDS = new HashMap<>();
@@ -138,7 +142,7 @@ public class Configurations
 	// set l2votes global reward variables
 	public static boolean L2VOTES_GLOBAL_REWARD;
 	public static String L2VOTES_API_KEY;
-	public static int L2VOTES_VOTE_CHECK_DELAY;
+	public static long L2VOTES_VOTE_CHECK_DELAY;
 	public static boolean L2VOTES_ANNOUNCE_STATISTICS;
 	public static int L2VOTES_VOTE_STEP;
 	public static Map<Integer, List<Integer[]>> L2VOTES_GLOBAL_REWARDS = new HashMap<>();

@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Freya_L2JDP">
+  <artifact type="jar" build-on-make="true" name="Freya_L2JDP">
     <output-path>$PROJECT_DIR$/out/artifacts/Freya_L2JDP</output-path>
     <root id="archive" name="VDSystem.jar">
       <element id="directory" name="META-INF">
