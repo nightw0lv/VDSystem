@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Interlude_Frozen">
+  <artifact type="jar" build-on-make="true" name="Interlude_Frozen">
     <output-path>$PROJECT_DIR$/out/artifacts/Interlude_Frozen</output-path>
     <root id="archive" name="VDSystem.jar">
       <element id="module-output" name="Frozen" />
