@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="L2J_Mobius_Essence_6.2_Vanguard">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Essence_6.2_Vanguard/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Essence_6.2_Vanguard/libs" recursive="false" />
+  </library>
+</component>

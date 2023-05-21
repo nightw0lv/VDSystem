@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +23,13 @@ package itopz.com.util;
 
 import itopz.com.gui.Gui;
 import org.l2jmobius.commons.database.DatabaseFactory;
-import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
 import org.l2jmobius.gameserver.util.Broadcast;
 
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.net.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -52,39 +48,44 @@ import java.util.Locale;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
  * Pack Support: Mobius Classic Interlude
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class Utilities
 {
-	public static final String CREATE_DONATE_TABLE = "CREATE TABLE donate_holder (" +
-	"  no int(11) NOT NULL AUTO_INCREMENT," +
-	"  id int(11) NOT NULL," +
-	"  count bigint(20) NOT NULL," +
-	"  playername varchar(255) NOT NULL," +
-	"  order_status varchar(255) DEFAULT '1'," +
-	"  PRIMARY KEY (no)" +
-	") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
+	public static final String CREATE_DONATE_TABLE = "CREATE TABLE `user_item_delivery`  (" +
+			"    `id` int NOT NULL AUTO_INCREMENT," +
+			"    `item_id` int NOT NULL," +
+			"    `item_count` int NOT NULL," +
+			"    `char_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL," +
+			"    `status` int NOT NULL DEFAULT 0," +
+			"    `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL," +
+			"    PRIMARY KEY (`id`) USING BTREE" +
+			"  ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;";
 	public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
-	"id int(11) NOT NULL AUTO_INCREMENT," +
-	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
-	"var varchar(255) NOT NULL," +
-	"value bigint(20) NOT NULL," +
-	"ip varchar(65) NOT NULL," +
-	"PRIMARY KEY (id)" +
-	") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+			"		id int(11) NOT NULL AUTO_INCREMENT," +
+			"		topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
+			"		var varchar(255) NOT NULL," +
+			"		value bigint(20) NOT NULL," +
+			"		ip varchar(65) NOT NULL," +
+			"		PRIMARY KEY (id)" +
+			"	) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
-	"topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
-	"var varchar(255) NOT NULL," +
-	"value bigint(20) NOT NULL," +
-	"PRIMARY KEY (topsite)" +
-	") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
-	public static final String DELETE_DONATE_TABLE = "DROP TABLE IF EXISTS donate_holder;";
+			"		topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
+			"		var varchar(255) NOT NULL," +
+			"		value bigint(20) NOT NULL," +
+			"		PRIMARY KEY (topsite)" +
+			"	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
+	public static final String DELETE_DONATE_TABLE = "DROP TABLE IF EXISTS `user_item_delivery`;";
 	private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
 	private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
 	private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (topsite, var, value, ip) VALUES (?,?,?,?);";
@@ -115,7 +116,8 @@ public class Utilities
 		try
 		{
 			desktop.browse(new URI(URL));
-		} catch (IOException | URISyntaxException error)
+		}
+		catch (IOException | URISyntaxException error)
 		{
 			error.printStackTrace();
 		}
@@ -130,7 +132,8 @@ public class Utilities
 		     PreparedStatement statement = con.prepareStatement(QUERY))
 		{
 			statement.execute();
-		} catch (SQLException e)
+		}
+		catch (SQLException e)
 		{
 			Gui.getInstance().ConsoleWrite("Delete " + TABLE + " Table Failed: " + e.getMessage());
 		}
@@ -147,7 +150,8 @@ public class Utilities
 		     PreparedStatement statement = con.prepareStatement(QUERY))
 		{
 			statement.execute();
-		} catch (SQLException e)
+		}
+		catch (SQLException e)
 		{
 			Gui.getInstance().ConsoleWrite("Installed " + TABLE + " Table Failed: " + e.getMessage());
 		}
@@ -161,7 +165,7 @@ public class Utilities
 	 * @param topsite string
 	 * @param var     string
 	 * @param value   long
-	 * @param IP      string
+     * @param IP      string
 	 */
 	public static void saveIndividualVar(final String topsite, final String var, final long value, final String IP)
 	{
@@ -173,7 +177,8 @@ public class Utilities
 			statement.setString(3, String.valueOf(value));
 			statement.setString(4, IP);
 			statement.execute();
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			final String error = e.getMessage();
 			if (error != null)
@@ -214,7 +219,8 @@ public class Utilities
 					found = true;
 				}
 			}
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			final String error = e.getMessage();
 			if (error != null)
@@ -236,7 +242,7 @@ public class Utilities
 	 *
 	 * @param topsite string
 	 * @param var     string
-     * @param IP      string
+	 * @param IP      string
 	 * @return long
 	 */
 	public static long selectIndividualVar(final String topsite, final String var, final String IP)
@@ -256,7 +262,8 @@ public class Utilities
 					value = rs.getLong("value");
 				}
 			}
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			final String error = e.getMessage();
 			if (error != null)
@@ -289,7 +296,8 @@ public class Utilities
 			statement.setString(2, var);
 			statement.setString(3, String.valueOf(value));
 			statement.executeUpdate();
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			final String error = e.getMessage();
 			if (error != null)
@@ -325,7 +333,8 @@ public class Utilities
 				if (rs.first())
 					result = rs.getInt("value");
 			}
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			final String error = e.getMessage();
 			if (error != null)
@@ -356,12 +365,24 @@ public class Utilities
 	/**
 	 * Check if the address given is local
 	 *
-	 * @param address string
+	 * @param address String
 	 * @return boolean
 	 */
-	public static boolean localIp(InetAddress address)
+	public static boolean localIp(String address)
 	{
-		return address == null || address.isLinkLocalAddress() || address.isLoopbackAddress() || address.isAnyLocalAddress() || address.isSiteLocalAddress();
+		if (address == null)
+			return false;
+		try
+		{
+			InetAddress iAddr = InetAddress.getByName(address);
+			return iAddr.isLoopbackAddress() || iAddr.isSiteLocalAddress()|| iAddr.isLinkLocalAddress() || iAddr.isAnyLocalAddress();
+		}
+		catch (UnknownHostException e)
+		{
+			// Handle exception if the IP address is invalid
+			e.getMessage();
+		}
+		return false;
 	}
 
 	/**
@@ -379,7 +400,8 @@ public class Utilities
 		{
 			LocalDateTime localDateTime = LocalDateTime.parse(ServerTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 			return localDateTime.atZone(ZoneId.of(TimeZone)).toInstant().toEpochMilli();
-		} catch (DateTimeParseException dtpe)
+		}
+		catch (DateTimeParseException dtpe)
 		{
 			dtpe.getMessage();
 		}
@@ -397,7 +419,8 @@ public class Utilities
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(new URL("http://checkip.amazonaws.com").openStream())))
 		{
 			ip = in.readLine();
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			e.printStackTrace();
 		}

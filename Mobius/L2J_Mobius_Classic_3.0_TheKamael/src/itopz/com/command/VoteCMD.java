@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,11 +26,11 @@ import itopz.com.gui.Gui;
 import itopz.com.model.IndividualResponse;
 import itopz.com.util.*;
 import itopz.com.vote.VDSystem;
-import org.l2jmobius.gameserver.datatables.ItemTable;
+import org.l2jmobius.gameserver.data.ItemTable;
 import org.l2jmobius.gameserver.handler.IVoicedCommandHandler;
 import org.l2jmobius.gameserver.model.StatSet;
-import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
-import org.l2jmobius.gameserver.model.items.Item;
+import org.l2jmobius.gameserver.model.actor.Player;
+import org.l2jmobius.gameserver.model.item.ItemTemplate;
 import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
 
@@ -47,13 +47,17 @@ import java.util.Objects;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
- * Pack Support: Mobius 3.0 The Kamael
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
+ * Pack Support: Mobius Classic 3.0 TheKamael
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class VoteCMD implements IVoicedCommandHandler
 {
@@ -79,9 +83,9 @@ public class VoteCMD implements IVoicedCommandHandler
 	private static final List<FloodProtectorHolder> FLOOD_PROTECTOR = Collections.synchronizedList(new ArrayList<>());
 
 	// returns protector holder
-	public FloodProtectorHolder getFloodProtector(final PlayerInstance player, final VoteSite site)
+	public FloodProtectorHolder getFloodProtector(final Player player, final VoteSite site)
 	{
-		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && (s.getIP().equalsIgnoreCase(player.getClient().getConnectionAddress().getHostAddress()) || s.getHWID().equalsIgnoreCase(player.getClient().getHardwareInfo().getMacAddress()))).findFirst().orElseGet(() ->
+		return FLOOD_PROTECTOR.stream().filter(s -> s.getSite() == site && (s.getIP().equalsIgnoreCase(player.getIPAddress()) || s.getHWID().equalsIgnoreCase(player.getClient().getHardwareInfo().getMacAddress()))).findFirst().orElseGet(() ->
 		{
 			final FloodProtectorHolder holder = new FloodProtectorHolder(site, player);
 			FLOOD_PROTECTOR.add(holder);
@@ -103,10 +107,10 @@ public class VoteCMD implements IVoicedCommandHandler
 
 		private long _lastAction;
 
-		public FloodProtectorHolder(final VoteSite site, final PlayerInstance player)
+		public FloodProtectorHolder(final VoteSite site, final Player player)
 		{
 			_site = site;
-			_IP = player.getClient().getConnectionAddress().getHostAddress();
+			_IP = player.getClient().getIp();
 			_HWID = player.getClient().getHardwareInfo().getMacAddress();
 		}
 
@@ -143,7 +147,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	};
 
 	@Override
-	public boolean useVoicedCommand(String command, PlayerInstance player, String s1)
+	public boolean useVoicedCommand(String command, Player player, String s1)
 	{
 		final String TOPSITE = command.replace(".", "").toUpperCase();
 
@@ -190,17 +194,17 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param TOPSITE string
 	 * @return boolean
 	 */
-	private boolean playerChecksFail(final PlayerInstance player, final String TOPSITE)
+	private boolean playerChecksFail(final Player player, final String TOPSITE)
 	{
 		// check for private network (website will not accept it)
-		if (!Configurations.DEBUG && (Utilities.localIp(player.getClient().getConnectionAddress())))
+		if (!Configurations.DEBUG && (Utilities.localIp(player.getClient().getIp())))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return true;
 		}
 
 		// check if 12 hours has pass from last vote
-		final long voteTimer = Utilities.selectIndividualVar(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getConnectionAddress().getHostAddress());
+		final long voteTimer = Utilities.selectIndividualVar(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getIp());
 		if (voteTimer > System.currentTimeMillis())
 		{
 			String dateFormatted = Utilities.formatMillisecond(voteTimer);
@@ -209,7 +213,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 
 		// restrict players from same IP to vote again
-		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getConnectionAddress().getHostAddress());
+		final boolean ipVoted = Utilities.selectIndividualIP(TOPSITE, "can_vote", Configurations.DEBUG ? Utilities.getMyIP() : player.getClient().getIp());
 		if (ipVoted)
 		{
 			sendMsg(player, "Someone already voted on " + TOPSITE + " from your IP.");
@@ -223,7 +227,7 @@ public class VoteCMD implements IVoicedCommandHandler
 			return false;
 		}
 
-		_IPAddress = player.getClient().getConnectionAddress().getHostAddress();
+		_IPAddress = player.getClient().getIp();
 		return false;
 	}
 
@@ -233,7 +237,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player  object
 	 * @param TOPSITE string
 	 */
-	private void Execute(final PlayerInstance player, final String TOPSITE)
+	private void Execute(final Player player, final String TOPSITE)
 	{
 		// get response from itopz about this ip address
 		Optional.ofNullable(IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL").toString(), _IPAddress).connect(TOPSITE, VDSystem.VoteType.INDIVIDUAL)).ifPresent(response ->
@@ -264,7 +268,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player object
 	 * @return boolean
 	 */
-	private boolean isEligible(final PlayerInstance player, final String TOPSITE, final StatSet set)
+	private boolean isEligible(final Player player, final String TOPSITE, final StatSet set)
 	{
 		final int _responseCode = set.getInt("response_code");
 		final boolean _hasVoted = set.getBoolean("has_voted");
@@ -318,13 +322,13 @@ public class VoteCMD implements IVoicedCommandHandler
 	 *
 	 * @param player object
 	 */
-	private void reward(final PlayerInstance player, final String TOPSITE)
+	private void reward(final Player player, final String TOPSITE)
 	{
 		// iterate on item values
 		for (final int itemId : Rewards.from(TOPSITE + "_INDIVIDUAL_REWARDS").keys())
 		{
 			// check if the item id exists
-			final Item item = ItemTable.getInstance().getTemplate(itemId);
+			final ItemTemplate item = ItemTable.getInstance().getTemplate(itemId);
 			if (Objects.nonNull(item))
 			{
 				// get config values
@@ -355,7 +359,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player object
 	 * @param s      string
 	 */
-	private void sendMsg(final PlayerInstance player, final String s)
+	private void sendMsg(final Player player, final String s)
 	{
 		player.sendPacket(new ExShowScreenMessage(s, ExShowScreenMessage.MIDDLE_CENTER, 3000));
 		player.sendMessage(s);

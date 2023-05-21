@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,10 @@ import itopz.com.gui.Gui;
 import itopz.com.model.GlobalResponse;
 import itopz.com.util.*;
 import itopz.com.vote.VDSystem;
-import org.l2jmobius.gameserver.datatables.ItemTable;
+import org.l2jmobius.gameserver.data.ItemTable;
 import org.l2jmobius.gameserver.model.World;
-import org.l2jmobius.gameserver.model.actor.instance.PlayerInstance;
-import org.l2jmobius.gameserver.model.items.Item;
+import org.l2jmobius.gameserver.model.actor.Player;
+import org.l2jmobius.gameserver.model.item.ItemTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,13 +43,17 @@ import java.util.stream.Collectors;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
- * Pack Support: Mobius 1.0 Ertheia
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
+ * Pack Support: Mobius Classic Interlude
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class Global
 {
@@ -300,7 +304,7 @@ public class Global
 	private void reward(String TOPSITE)
 	{
 		// iterate through all players
-		for (PlayerInstance player : World.getInstance().getPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
+		for (Player player : World.getInstance().getPlayers().stream().filter(Objects::nonNull).collect(Collectors.toList()))
 		{
 			// ignore fake players
 			if (player.isFakePlayer())
@@ -323,7 +327,7 @@ public class Global
 			String key = "";
 			try
 			{
-				key = Objects.requireNonNull(player.getClient().getConnectionAddress().getHostAddress(), player.getName());
+				key = Objects.requireNonNull(player.getClient().getIp(), player.getName());
 			} catch (Exception e)
 			{
 				Gui.getInstance().ConsoleWrite(e.getMessage());
@@ -341,7 +345,7 @@ public class Global
 			for (final int itemId : Rewards.from(TOPSITE + "_GLOBAL_REWARDS").keys())
 			{
 				// check if the item id exists
-				final Item item = ItemTable.getInstance().getTemplate(itemId);
+				final ItemTemplate item = ItemTable.getInstance().getTemplate(itemId);
 				if (Objects.nonNull(item))
 				{
 					// get config values

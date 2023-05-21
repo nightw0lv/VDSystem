@@ -1,8 +1,8 @@
 diff --git .classpath .classpath
-index d82587c..b697e07 100644
+index d82587c..7512d43 100644
 --- .classpath
 +++ .classpath
-@@ -1,15 +1,16 @@
+@@ -1,15 +1,17 @@
 -<?xml version="1.0" encoding="UTF-8"?>
 -<classpath>
 -	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
@@ -32,20 +32,20 @@ index d82587c..b697e07 100644
 +	<classpathentry kind="lib" path="dist/libs/VDSystem.jar"/>
 +	<classpathentry including="**/*.java" kind="src" path="dist/game/data/scripts"/>
 +	<classpathentry kind="src" path="java"/>
++	<classpathentry kind="lib" path="/L2J_Mobius_2.5_Underground/dist/libs/VDSystem.jar"/>
 +	<classpathentry kind="output" path="bin"/>
 +</classpath>
 
-
 diff --git java/org/l2jmobius/gameserver/GameServer.java java/org/l2jmobius/gameserver/GameServer.java
-index faf7066..ccfb7f0 100644
+index a153400..5259a1c 100644
 --- java/org/l2jmobius/gameserver/GameServer.java
 +++ java/org/l2jmobius/gameserver/GameServer.java
-@@ -158,2 +158,4 @@
+@@ -157,2 +157,4 @@
 
 +import itopz.com.VDSystemManager;
 +
  public class GameServer
-@@ -420,2 +422,4 @@
+@@ -415,2 +417,4 @@
 
 +		VDSystemManager.getInstance();
 +

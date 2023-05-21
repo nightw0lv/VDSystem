@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,13 +35,17 @@ import java.util.*;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
- * Pack Support: Mobius C4 Scions of Destiny
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
+ * Pack Support: Mobius C4 ScionsOfDestiny
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class Configurations
 {
@@ -186,9 +190,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				ITOPZ_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -206,9 +210,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				ITOPZ_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -231,9 +235,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				HOPZONE_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -251,9 +255,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				HOPZONE_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -276,9 +280,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2TOPGAMESERVER_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -296,9 +300,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2TOPGAMESERVER_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -321,9 +325,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2JBRASIL_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -341,9 +345,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2JBRASIL_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -367,9 +371,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2NETWORK_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -387,9 +391,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2NETWORK_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -414,9 +418,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2TOPSERVERS_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -434,9 +438,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2TOPSERVERS_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -459,9 +463,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2VOTES_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -479,9 +483,9 @@ public class Configurations
 				// Min-Max-Chance
 				temp.add(new Integer[]
 				{
-				Integer.parseInt(parts[1].split("-")[0]),
-				Integer.parseInt(parts[1].split("-")[1]),
-				Integer.parseInt(parts[1].split("-")[2]),
+						Integer.parseInt(parts[1].split("-")[0]),
+						Integer.parseInt(parts[1].split("-")[1]),
+						Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2VOTES_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}

@@ -8,11 +8,11 @@ Implementation of vote global and individual system with itopz donate panel task
 **Requirement**
 - Mobius CT 2.4 Epilogue
 - Patch installation (provided)
-- JDK 14
+- JDK 17
 
 **Build**
 - File ```VDSystem.jar```
-- Version: 1.4
+- Version: 1.5
 
 **Global vote system**
 
@@ -65,7 +65,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Fully configured
 
 **Installation**
-![https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_CT_2.4_Epilogue/VDSystem/Patch.diff](Patch.diff)
+![https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/VDSystem/Patch.diff](Patch.diff)
 
 ```Special thanks to Rationale``` :cry:
 
@@ -79,6 +79,11 @@ Implementation of vote global and individual system with itopz donate panel task
 ![https://prnt.sc/w6zzcs](../../images/7.png)
 
 **Chancelog**
+-
+  Version 1.5
+  - Update VDS Mobius projects to the latest public git
+  - Removed Premium Mobius projects
+  - 
 
 - Version 1.4
   - Update Premium Mobius Projects

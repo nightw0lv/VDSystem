@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="L2J_Mobius_Essence_7.0_Assassin">
+    <output-path>$PROJECT_DIR$/out/artifacts/L2J_Mobius_Essence_7_0_Assassin</output-path>
+    <root id="archive" name="VDSystem.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Mobius/L2J_Mobius_Essence_7.0_Assassin/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="L2J_Mobius_Essence_7.0_Assassin" />
+    </root>
+  </artifact>
+</component>

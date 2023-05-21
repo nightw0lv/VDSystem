@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,13 +43,17 @@ import java.util.stream.Collectors;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
  * Pack Support: Mobius CT 2.4 Epilogue
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public abstract class IResponse
 {
@@ -113,22 +117,23 @@ public abstract class IResponse
 				onFetch(TOPSITE, responseCode, new Json(reader.lines().collect(Collectors.joining()), TOPSITE, TYPE));
 			}
 			return this;
-		} catch (final SocketTimeoutException sex)
+		}
+		catch (final SocketTimeoutException sex)
 		{
-			
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + sex.getMessage(), sex);
-		} catch (final FileNotFoundException fnfe)
+		}
+		catch (final FileNotFoundException fnfe)
 		{
-			
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + fnfe.getMessage(), fnfe);
-		} catch (final Exception ex)
+		}
+		catch (final Exception ex)
 		{
-			
 			if (Configurations.DEBUG)
 				_log.error("Exception:" + ex.getMessage(), ex);
-		} finally
+		}
+		finally
 		{
 			// close connection
 			Optional.ofNullable(connection).ifPresent(HttpURLConnection::disconnect);
