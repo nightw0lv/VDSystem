@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="HighFive_Mythras">
+  <artifact type="jar" build-on-make="true" name="HighFive_Mythras">
     <output-path>$PROJECT_DIR$/out/artifacts/HighFive_Mythras</output-path>
     <root id="archive" name="VDSystem.jar">
       <element id="module-output" name="Mythras" />
