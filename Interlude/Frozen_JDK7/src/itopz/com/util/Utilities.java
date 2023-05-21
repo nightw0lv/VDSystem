@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@
  */
 package itopz.com.util;
 
-import com.l2jfrozen.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jfrozen.gameserver.model.entity.Announcements;
 import com.l2jfrozen.util.database.L2DatabaseFactory;
 import itopz.com.gui.Gui;
@@ -45,13 +44,17 @@ import java.util.Locale;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
- * Pack Support: Frozen 1132 Last beta branch beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
+ * Pack Support: Frozen 1132 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class Utilities
 {
