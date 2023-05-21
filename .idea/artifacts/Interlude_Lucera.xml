@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Interlude_Lucera">
+  <artifact type="jar" build-on-make="true" name="Interlude_Lucera">
     <output-path>$PROJECT_DIR$/out/artifacts/Interlude_Lucera</output-path>
     <root id="archive" name="VDSystem.ext.jar">
       <element id="directory" name="META-INF">
