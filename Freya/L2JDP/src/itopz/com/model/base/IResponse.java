@@ -117,22 +117,26 @@ public abstract class IResponse
 				onFetch(TOPSITE, responseCode, new Json(reader.lines().collect(Collectors.joining()), TOPSITE, TYPE));
 			}
 			return this;
-		} catch (final SocketTimeoutException sex)
+		}
+		catch (final SocketTimeoutException sex)
 		{
 			
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + sex.getMessage(), sex);
-		} catch (final FileNotFoundException fnfe)
+		}
+		catch (final FileNotFoundException fnfe)
 		{
 			
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + fnfe.getMessage(), fnfe);
-		} catch (final Exception ex)
+		}
+		catch (final Exception ex)
 		{
 			
 			if (Configurations.DEBUG)
 				_log.error("Exception:" + ex.getMessage(), ex);
-		} finally
+		}
+		finally
 		{
 			// close connection
 			Optional.ofNullable(connection).ifPresent(HttpURLConnection::disconnect);

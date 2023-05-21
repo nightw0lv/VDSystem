@@ -61,8 +61,8 @@ public class DonateTaskManager implements Runnable
 	// logger
 	private static final Logs _log = new Logs(DonateTaskManager.class.getSimpleName());
 
-	private final String DELETE = "DELETE FROM donate_holder WHERE no=? LIMIT 1";
-	private final String SELECT = "SELECT no, id, count, playername FROM donate_holder";
+	private final static String UPDATE = "UPDATE user_item_delivery SET status=1 WHERE id=?;";
+	private final static String SELECT = "SELECT id, item_id, item_count, char_name FROM user_item_delivery WHERE status=0;";
 
 	@Override
 	public void run()
@@ -81,35 +81,36 @@ public class DonateTaskManager implements Runnable
 		{
 			while (rset.next())
 			{
-				final L2PcInstance player = L2World.getInstance().getPlayer(rset.getString("playername"));
-				final int no = rset.getInt("no");
 				final int id = rset.getInt("id");
-				final int count = rset.getInt("count");
+				final L2PcInstance player = L2World.getInstance().getPlayer(rset.getString("char_name"));
+				final int item_id = rset.getInt("item_id");
+				final int item_count = rset.getInt("item_count");
 
 				Optional.ofNullable(player).ifPresent(s ->
 				{
-					if (removeDonation(no))
+					if (updateDonation(id))
 					{
-						final L2Item item = ItemTable.getInstance().getTemplate(id);
+						final L2Item item = ItemTable.getInstance().getTemplate(item_id);
 
 						if (Objects.nonNull(item))
 						{
-							Gui.getInstance().ConsoleWrite("Donation: " + player.getName() + " received " + count + "x " + item.getName());
-							player.addItem("", id, count, player, true);
+							Gui.getInstance().ConsoleWrite("Donation: " + player.getName() + " received " + item_count + "x " + item.getName());
+							player.addItem("", item_id, item_count, player, true);
 							player.sendPacket(ActionFailed.STATIC_PACKET);
 						}
 					}
 				});
 			}
-		} catch (final Exception e)
+		}
+		catch (final Exception e)
 		{
 			String error = e.getMessage();
-			_log.warn("Check donate items failed. " + error);
+			_log.warn("Donation item delivery failed. " + error);
 
-			if (error.contains("doesn't exist") && error.contains("donate_holder"))
+			if (error.contains("doesn't exist") && error.contains("user_item_delivery"))
 			{
-				Utilities.deleteTable(Utilities.DELETE_DONATE_TABLE, "Donate");
-				Utilities.createTable(Utilities.CREATE_DONATE_TABLE, "Donate");
+				Utilities.deleteTable(Utilities.DELETE_DONATE_TABLE, "user_item_delivery");
+				Utilities.createTable(Utilities.CREATE_DONATE_TABLE, "user_item_delivery");
 			}
 		}
 	}
@@ -120,17 +121,18 @@ public class DonateTaskManager implements Runnable
 	 * @param id int
 	 * @return boolean
 	 */
-	private boolean removeDonation(int id)
+	private boolean updateDonation(int id)
 	{
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-		     PreparedStatement statement = con.prepareStatement(DELETE))
+			 PreparedStatement statement = con.prepareStatement(UPDATE))
 		{
 			statement.setInt(1, id);
 			statement.execute();
 			return true;
-		} catch (SQLException e)
+		}
+		catch (SQLException e)
 		{
-			_log.warn("Failed to remove donation from database of donation id: " + id);
+			_log.warn("Failed to update the donation on database, id: " + id);
 			_log.warn(e.getMessage());
 		}
 

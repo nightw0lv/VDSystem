@@ -177,7 +177,7 @@ public class Gui extends JFrame
 		cp.add(ConsolePanel, BorderLayout.EAST);
 
 		// Setup basic window settings
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("VDSystem server console.");
 		setSize(Configurations.ITOPZ_CONSOLE_WIDTH, Configurations.ITOPZ_CONSOLE_HEIGHT);
 	}
