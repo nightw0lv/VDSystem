@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ScionsOfDestiny_Lisvus_JDK17">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Scions of Destiny/Lisvus_JDK17/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/Scions of Destiny/Lisvus_JDK17/libs" recursive="false" />
+  </library>
+</component>
