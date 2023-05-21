@@ -1,0 +1,37 @@
+### Eclipse Workspace Patch 1.0
+#P Lisvus_GameServer
+Index: .classpath
+===================================================================
+--- .classpath	(revision 728)
++++ .classpath	(working copy)
+@@ -10,5 +10,6 @@
+     <classpathentry kind="lib" path="lib/ecj-4.13.jar"/>
+     <classpathentry kind="lib" path="lib/jython-2.7.2b1.jar"/>
+     <classpathentry kind="lib" path="lib/HikariCP-3.4.1.jar"/>
++    <classpathentry kind="lib" path="lib/VDSystem.jar"/>
+     <classpathentry kind="output" path="bin"/>
+-</classpath>
+\ No newline at end of file
++</classpath>
+Index: java/net/sf/l2j/gameserver/GameServer.java
+===================================================================
+--- java/net/sf/l2j/gameserver/GameServer.java	(revision 728)
++++ java/net/sf/l2j/gameserver/GameServer.java	(working copy)
+@@ -26,6 +26,7 @@
+ import java.util.logging.LogManager;
+ import java.util.logging.Logger;
+
++import itopz.com.VDSystemManager;
+ import net.sf.l2j.Config;
+ import net.sf.l2j.L2DatabaseFactory;
+ import net.sf.l2j.Server;
+@@ -413,6 +414,9 @@
+ 		EventEngine.getInstance();
+
+ 		KnownListUpdateTaskManager.getInstance();
++
++		VDSystemManager.getInstance();
++
+ 		if (Config.DEADLOCK_DETECTOR)
+ 		{
+ 			_deadDetectThread = new DeadLockDetector();
