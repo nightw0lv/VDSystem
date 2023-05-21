@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 iTopZ
+ * Copyright (c) 2023 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ import itopz.com.gui.Gui;
 import itopz.com.model.IndividualResponse;
 import itopz.com.util.*;
 import itopz.com.vote.VDSystem;
-import net.sf.l2j.commons.util.StatsSet;
+import net.sf.l2j.commons.data.StatSet;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.handler.IVoicedCommandHandler;
 import net.sf.l2j.gameserver.model.actor.Player;
@@ -47,13 +47,17 @@ import java.util.Objects;
  * @Author Rationale
  * Base structure credits goes on Rationale Discord: Rationale#7773
  * <p>
- * Vote Donation System
+ * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
- * Script version: 1.4
- * Pack Support: aCis 394
+ * Partner website: https://hopzone.eu/
+ * Script version: 1.5
+ * Pack Support: aCis 401
  * <p>
- * Personal Donate Panels: https://www.denart-designs.com/
- * Free Donate panel: https://itopz.com/
+ * Freemium Donate Panel V4: https://www.denart-designs.com/
+ * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
+ * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
+ *
+ * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
  */
 public class VoteCMD implements IVoicedCommandHandler
 {
@@ -232,7 +236,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		Optional.ofNullable(IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL").toString(), _IPAddress).connect(TOPSITE, VDSystem.VoteType.INDIVIDUAL)).ifPresent(response ->
 		{
 			// set variables
-			final StatsSet set = new StatsSet();
+			final StatSet set = new StatSet();
 			set.set("response_code", response.getResponseCode());
 			set.set("has_voted", response.hasVoted());
 			set.set("vote_time", response.getVoteTime());
@@ -257,7 +261,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player object
 	 * @return boolean
 	 */
-	private boolean isEligible(final Player player, final String TOPSITE, final StatsSet set)
+	private boolean isEligible(final Player player, final String TOPSITE, final StatSet set)
 	{
 		final int _responseCode = set.getInteger("response_code");
 		final boolean _hasVoted = set.getBool("has_voted");

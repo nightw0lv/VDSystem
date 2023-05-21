@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Interlude_aCis">
+  <artifact type="jar" build-on-make="true" name="Interlude_aCis">
     <output-path>$PROJECT_DIR$/out/artifacts/Interlude_aCis</output-path>
     <root id="archive" name="VDSystem.jar">
       <element id="directory" name="META-INF">
