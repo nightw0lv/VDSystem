@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="HighFive_aVa">
+  <artifact type="jar" build-on-make="true" name="HighFive_aVa">
     <output-path>$PROJECT_DIR$/out/artifacts/HighFive_aVa</output-path>
     <root id="archive" name="VDSystem.jar">
       <element id="module-output" name="aVa" />
