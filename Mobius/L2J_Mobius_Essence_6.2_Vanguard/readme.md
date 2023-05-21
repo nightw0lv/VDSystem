@@ -65,7 +65,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Fully configured
 
 **Installation**
-![https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/VDSystem/Patch.diff](Patch.diff)
+![https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/VDSystem/Patch.diff](Patch.diff)
 
 ```Special thanks to Rationale``` :cry:
 

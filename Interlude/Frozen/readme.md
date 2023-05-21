@@ -66,7 +66,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Fully configured
 
 **Installation**
-![https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen/VDSystem/Patch.diff](Patch.diff)
+![https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Frozen/VDSystem/Patch.diff](Patch.diff)
 
 ```Special thanks to Rationale``` :cry:
 

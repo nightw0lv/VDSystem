@@ -66,7 +66,7 @@ Implementation of vote global and individual system with itopz donate panel task
 - Fully configured
 
 **Installation**
-![https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Remorse/VDSystem/installation.txt](installation.txt)
+![https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Remorse/VDSystem/installation.txt](installation.txt)
 
 ```Special thanks to Rationale``` :cry:
 
