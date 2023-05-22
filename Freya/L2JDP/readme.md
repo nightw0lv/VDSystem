@@ -12,7 +12,7 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **Build**
 - File ```VDSystem.jar```
-- Version: 1.4
+- Version: 1.5
 
 **Global vote system**
 
@@ -41,10 +41,10 @@ Implementation of vote global and individual system with itopz donate panel task
 - Check for response errors
 - Check if player voted
 
-**Donate Management** (upgrade version of [Donate Panel](https://github.com/nightw0lv/DonatePanel))
+**Item Delivery Manager** (Item Delivery Manager of [Free Donate Panel](https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g))
 
-- Player donates through Donate Panel
-- Item will be rewarded in game
+- Player receives item through Panels like Donation, Vote, Referral like L2OFF
+- Item will be logged and rewarded in game
 
 **Configs**
 
@@ -81,6 +81,36 @@ Implementation of vote global and individual system with itopz donate panel task
 ![https://prnt.sc/w6zzcs](../../images/7.png)
 
 **Chancelog**
+
+- Version 1.5
+  - Update VDS Mobius projects to the latest public git
+    - Refactor PlayerInstance to Player
+    - Refactor Item to ItemTemplate
+    - Refactor datatables to data
+    - Refactor #getIpAddress() to #getIp()
+    - Refactor on Donation is now item delivery manager
+	  - replaced with https://github.com/nightw0lv/Item-Delivery-Manager
+    - Formatting on configuration class
+    - Commended out Fake Player checks (left for those who want them)
+    - Commended out HWID for C6 and C4 for other projects MAC address is used (left for those who want them)
+    - Replaced old SQL in utilities
+    - #toAllOnlinePlayers() removed boolean
+    - Reworked #localIp()
+  - Updated Date on license,
+  - Updated info
+  - Correct Set Functions
+  - Change int to long on check delay configs
+  - Corrected l2world function players for some projects
+  - Updated aCis version from 394 to 401
+  - Refactored aCis StatsSet to StatSet
+  - Removed unused imports
+  - Added Lisvus use JDK 11 rev 728 and JDK 17 latest
+  - Project removed old modules, libraries and artifacts
+  - Added new modules, libraries and artifacts for mobius projects
+  - Updated project to JDK 17
+  - Updated root project to JDK 17
+  - Formatting on Configuration, Global classes
+  - Refactor itopz.com to hopzone.eu
 
 - Version 1.4
   - Update Premium Mobius Projects
