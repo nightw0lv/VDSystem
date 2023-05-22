@@ -58,7 +58,7 @@ import java.util.Locale;
  */
 public class Utilities
 {
-	public static final String CREATE_DONATE_TABLE = "CREATE TABLE `user_item_delivery`  (" +
+	public static final String CREATE_DELIVERY_TABLE = "CREATE TABLE `user_item_delivery`  (" +
 			"    `id` int NOT NULL AUTO_INCREMENT," +
 			"    `item_id` int NOT NULL," +
 			"    `item_count` int NOT NULL," +
@@ -81,7 +81,7 @@ public class Utilities
 			"		value bigint(20) NOT NULL," +
 			"		PRIMARY KEY (topsite)" +
 			"	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
-	public static final String DELETE_DONATE_TABLE = "DROP TABLE IF EXISTS `user_item_delivery`;";
+	public static final String DELETE_DELIVERY_TABLE = "DROP TABLE IF EXISTS `user_item_delivery`;";
 	private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
 	private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
 	private static final String INDIVIDUAL_INSERT = "INSERT INTO vds_individual (topsite, var, value, ip) VALUES (?,?,?,?);";

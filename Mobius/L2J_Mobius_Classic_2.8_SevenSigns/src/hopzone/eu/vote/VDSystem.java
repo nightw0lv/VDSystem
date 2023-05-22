@@ -23,7 +23,7 @@ package hopzone.eu.vote;
 
 import hopzone.eu.command.VoteCMD;
 import hopzone.eu.global.Global;
-import hopzone.eu.task.DonateTaskManager;
+import hopzone.eu.task.ItemDeliveryManager;
 import hopzone.eu.util.Logs;
 import hopzone.eu.util.VDSThreadPool;
 import hopzone.eu.Configurations;
@@ -74,10 +74,10 @@ public class VDSystem
 		if (Configurations.ITOPZ_DONATE_MANAGER)
 		{
 			// start donation manager
-			VDSThreadPool.scheduleAtFixedRate(new DonateTaskManager(), 100, 5000);
+			VDSThreadPool.scheduleAtFixedRate(new ItemDeliveryManager(), 100, 5000);
 
 			// initiate Donation reward
-			_log.info(DonateTaskManager.class.getSimpleName() + ": started.");
+			_log.info(ItemDeliveryManager.class.getSimpleName() + ": started.");
 		}
 
 		// register individual reward command
