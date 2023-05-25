@@ -22,6 +22,7 @@
 package hopzone.eu.model.base;
 
 import hopzone.eu.Configurations;
+import hopzone.eu.gui.Gui;
 import hopzone.eu.util.Json;
 import hopzone.eu.util.Logs;
 import hopzone.eu.vote.VDSystem;
@@ -122,16 +123,19 @@ public abstract class IResponse
 		{
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + sex.getMessage(), sex);
+			Gui.getInstance().ConsoleWrite("Error: " + sex.getMessage());
 		}
 		catch (final FileNotFoundException fnfe)
 		{
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + fnfe.getMessage(), fnfe);
+			Gui.getInstance().ConsoleWrite("Error: " + fnfe.getMessage());
 		}
 		catch (final Exception ex)
 		{
 			if (Configurations.DEBUG)
 				_log.error("Exception:" + ex.getMessage(), ex);
+			Gui.getInstance().ConsoleWrite("Error: " + ex.getMessage());
 		}
 		finally
 		{

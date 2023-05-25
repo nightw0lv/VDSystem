@@ -71,7 +71,7 @@ public class VDSystem
 	public void onLoad()
 	{
 		// check if allowed the donation system to run
-		if (Configurations.ITOPZ_DONATE_MANAGER)
+		if (Configurations.ITEM_DELIVERY_MANAGER)
 		{
 			// start donation manager
 			VDSThreadPool.scheduleAtFixedRate(new ItemDeliveryManager(), 100, 5000);

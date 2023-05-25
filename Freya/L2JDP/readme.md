@@ -1,6 +1,6 @@
 **VDS Vote Donate System**
 
-Implementation of vote global and individual system with itopz donate panel task manager.
+Implementation of vote global and individual system with item delivery manager.
 -
 - Global vote reward is when players vote for the server in one of the topsites installed as a "thank you" they will receive configured item/items reward.
 - Individual vote reward is when a single player (individual) vote for the server on one or more topsites and for each vote as a "thank you" he will receive configured item/items reward.
@@ -12,7 +12,7 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **Build**
 - File ```VDSystem.jar```
-- Version: 1.5
+- Version: 1.6
 
 **Global vote system**
 

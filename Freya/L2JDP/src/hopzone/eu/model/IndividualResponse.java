@@ -84,12 +84,17 @@ public class IndividualResponse extends IResponse
 
 		switch (TOPSITE)
 		{
+			case "HOPZONE":
+				_voteTime = response.getLong(TOPSITE.toLowerCase() + "_vote_time") * 1000;
+				_serverTime = response.getLong(TOPSITE.toLowerCase() + "_server_time") * 1000;
+				_voteError = response.getString("error");
+				break;
 			case "ITOPZ":
 				_voteTime = response.getLong(TOPSITE.toLowerCase() + "_vote_time") * 1000;
 				_serverTime = response.getLong(TOPSITE.toLowerCase() + "serverTime") * 1000;
 				_voteError = response.getString("error");
 				break;
-			case "HOPZONE":
+			case "HOPZONENET":
 				_voteTime = _hasVoted ? Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "US/Arizona") : -1;
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "US/Arizona");
 				_voteError = response.getString("errorMsg");
@@ -102,7 +107,7 @@ public class IndividualResponse extends IResponse
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Berlin");
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Berlin");
 				break;
-			case "L2TOPSERVERS":
+			case "HOTSERVERS":
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Athens");
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Athens");
 				break;
