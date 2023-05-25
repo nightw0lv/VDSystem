@@ -38,7 +38,7 @@ import hopzone.eu.util.VDSThreadPool;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: L2JDP
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/

@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: L2JDP
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -183,7 +183,7 @@ public class Global
 				break;
 			case "HOTSERVERS":
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
-				Gui.getInstance().UpdateTopServersStats(serverVotes);
+				Gui.getInstance().UpdateHotServersStats(serverVotes);
 				break;
 			case "L2VOTES":
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
@@ -299,7 +299,7 @@ public class Global
 				break;
 			case "HOTSERVERS":
 				if (Configurations.HOTSERVERS_ANNOUNCE_STATISTICS)
-					Gui.getInstance().UpdateTopServersStats(serverVotes);
+					Gui.getInstance().UpdateHotServersStats(serverVotes);
 				// check for vote step reward
 				if (serverVotes >= storedVotes + Configurations.HOTSERVERS_VOTE_STEP)
 				{
