@@ -184,6 +184,7 @@ public class VoteCMD implements IVoicedCommandHandler
 			sendMsg(player, "You can't use ." + TOPSITE + " command so fast!");
 			player.sendMessage("Use the command again in " + seconds_remain + " seconds");
 			showHtmlWindow(player);
+			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return false;
 		}
 		holder.updateLastAction();
