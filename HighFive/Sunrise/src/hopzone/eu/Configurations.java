@@ -38,7 +38,7 @@ import java.util.Map;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Sunrise
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -54,18 +54,30 @@ public class Configurations
 
 	public static boolean DEBUG;
 
-	// set donate manager variables
-	public static boolean ITOPZ_DONATE_MANAGER;
+	// set delivery manager variables
+	public static boolean ITEM_DELIVERY_MANAGER;
 
 	// set console variables
-	public static boolean ITOPZ_CONSOLE_ENABLE;
-	public static String ITOPZ_CONSOLE_FONT;
-	public static int ITOPZ_CONSOLE_SIZE;
-	public static int ITOPZ_CONSOLE_COLOR_R;
-	public static int ITOPZ_CONSOLE_COLOR_G;
-	public static int ITOPZ_CONSOLE_COLOR_B;
-	public static int ITOPZ_CONSOLE_WIDTH;
-	public static int ITOPZ_CONSOLE_HEIGHT;
+	public static boolean VDS_CONSOLE_ENABLE;
+	public static String VDS_CONSOLE_FONT;
+	public static int VDS_CONSOLE_SIZE;
+	public static int VDS_CONSOLE_COLOR_R;
+	public static int VDS_CONSOLE_COLOR_G;
+	public static int VDS_CONSOLE_COLOR_B;
+	public static int VDS_CONSOLE_WIDTH;
+	public static int VDS_CONSOLE_HEIGHT;
+	
+	// set https://hopzone.eu global reward variables
+	public static boolean HOPZONE_EU_GLOBAL_REWARD;
+	public static int HOPZONE_EU_SERVER_ID;
+	public static String HOPZONE_EU_SERVER_API_KEY;
+	public static long HOPZONE_EU_VOTE_CHECK_DELAY;
+	public static boolean HOPZONE_EU_ANNOUNCE_STATISTICS;
+	public static int HOPZONE_EU_VOTE_STEP;
+	public static Map<Integer, List<Long[]>> HOPZONE_EU_GLOBAL_REWARDS = new HashMap<>();
+	// set https://hopzone.eu individual variables
+	public static boolean HOPZONE_EU_INDIVIDUAL_REWARD;
+	public static Map<Integer, List<Long[]>> HOPZONE_EU_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	// set itopz global reward variables
 	public static boolean ITOPZ_GLOBAL_REWARD;
@@ -80,15 +92,15 @@ public class Configurations
 	public static Map<Integer, List<Long[]>> ITOPZ_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	// set hopzone global reward variables
-	public static boolean HOPZONE_GLOBAL_REWARD;
-	public static String HOPZONE_SERVER_API_KEY;
-	public static long HOPZONE_VOTE_CHECK_DELAY;
-	public static boolean HOPZONE_ANNOUNCE_STATISTICS;
-	public static int HOPZONE_VOTE_STEP;
-	public static Map<Integer, List<Long[]>> HOPZONE_GLOBAL_REWARDS = new HashMap<>();
+	public static boolean HOPZONE_NET_GLOBAL_REWARD;
+	public static String HOPZONE_NET_SERVER_API_KEY;
+	public static long HOPZONE_NET_VOTE_CHECK_DELAY;
+	public static boolean HOPZONE_NET_ANNOUNCE_STATISTICS;
+	public static int HOPZONE_NET_VOTE_STEP;
+	public static Map<Integer, List<Long[]>> HOPZONE_NET_GLOBAL_REWARDS = new HashMap<>();
 	// set hopzone individual variables
-	public static boolean HOPZONE_INDIVIDUAL_REWARD;
-	public static Map<Integer, List<Long[]>> HOPZONE_INDIVIDUAL_REWARDS = new HashMap<>();
+	public static boolean HOPZONE_NET_INDIVIDUAL_REWARD;
+	public static Map<Integer, List<Long[]>> HOPZONE_NET_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	// set l2topgameserver global reward variables
 	public static boolean L2TOPGAMESERVER_GLOBAL_REWARD;
@@ -124,18 +136,18 @@ public class Configurations
 	public static boolean L2NETWORK_INDIVIDUAL_REWARD;
 	public static Map<Integer, List<Long[]>> L2NETWORK_INDIVIDUAL_REWARDS = new HashMap<>();
 
-	// set l2topservers global reward variables
-	public static boolean L2TOPSERVERS_GLOBAL_REWARD;
-	public static String L2TOPSERVERS_API_KEY;
-	public static String L2TOPSERVERS_SERVER_ID;
-	public static String L2TOPSERVERS_SERVER_NAME;
-	public static long L2TOPSERVERS_VOTE_CHECK_DELAY;
-	public static boolean L2TOPSERVERS_ANNOUNCE_STATISTICS;
-	public static int L2TOPSERVERS_VOTE_STEP;
-	public static Map<Integer, List<Long[]>> L2TOPSERVERS_GLOBAL_REWARDS = new HashMap<>();
-	// set l2topservers individual variables
-	public static boolean L2TOPSERVERS_INDIVIDUAL_REWARD;
-	public static Map<Integer, List<Long[]>> L2TOPSERVERS_INDIVIDUAL_REWARDS = new HashMap<>();
+	// set hotservers global reward variables
+	public static boolean HOTSERVERS_GLOBAL_REWARD;
+	public static String HOTSERVERS_API_KEY;
+	public static String HOTSERVERS_SERVER_ID;
+	public static String HOTSERVERS_SERVER_NAME;
+	public static long HOTSERVERS_VOTE_CHECK_DELAY;
+	public static boolean HOTSERVERS_ANNOUNCE_STATISTICS;
+	public static int HOTSERVERS_VOTE_STEP;
+	public static Map<Integer, List<Long[]>> HOTSERVERS_GLOBAL_REWARDS = new HashMap<>();
+	// set hotservers individual variables
+	public static boolean HOTSERVERS_INDIVIDUAL_REWARD;
+	public static Map<Integer, List<Long[]>> HOTSERVERS_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	// set l2votes global reward variables
 	public static boolean L2VOTES_GLOBAL_REWARD;
@@ -144,7 +156,7 @@ public class Configurations
 	public static boolean L2VOTES_ANNOUNCE_STATISTICS;
 	public static int L2VOTES_VOTE_STEP;
 	public static Map<Integer, List<Long[]>> L2VOTES_GLOBAL_REWARDS = new HashMap<>();
-	// set l2topservers individual variables
+	// set hotservers individual variables
 	public static boolean L2VOTES_INDIVIDUAL_REWARD;
 	public static Map<Integer, List<Long[]>> L2VOTES_INDIVIDUAL_REWARDS = new HashMap<>();
 
@@ -160,17 +172,63 @@ public class Configurations
 		DEBUG = ep.getBoolean("VDS_DEBUG", false);
 
 		// set console variables
-		ITOPZ_CONSOLE_ENABLE = ep.getBoolean("ConsoleEnable", true);
-		ITOPZ_CONSOLE_FONT = ep.getString("ConsoleFont", "Arial");
-		ITOPZ_CONSOLE_SIZE = ep.getInt("ConsoleFontSize", 12);
-		ITOPZ_CONSOLE_COLOR_R = ep.getInt("ConsoleColorR", 204);
-		ITOPZ_CONSOLE_COLOR_G = ep.getInt("ConsoleColorG", 238);
-		ITOPZ_CONSOLE_COLOR_B = ep.getInt("ConsoleColorB", 241);
-		ITOPZ_CONSOLE_WIDTH = ep.getInt("ConsoleWidth", 400);
-		ITOPZ_CONSOLE_HEIGHT = ep.getInt("ConsoleHeight", 350);
+		VDS_CONSOLE_ENABLE = ep.getBoolean("ConsoleEnable", true);
+		VDS_CONSOLE_FONT = ep.getString("ConsoleFont", "Arial");
+		VDS_CONSOLE_SIZE = ep.getInt("ConsoleFontSize", 12);
+		VDS_CONSOLE_COLOR_R = ep.getInt("ConsoleColorR", 204);
+		VDS_CONSOLE_COLOR_G = ep.getInt("ConsoleColorG", 238);
+		VDS_CONSOLE_COLOR_B = ep.getInt("ConsoleColorB", 241);
+		VDS_CONSOLE_WIDTH = ep.getInt("ConsoleWidth", 400);
+		VDS_CONSOLE_HEIGHT = ep.getInt("ConsoleHeight", 350);
 
-		// set donate manager variables
-		ITOPZ_DONATE_MANAGER = ep.getBoolean("DonateManager", true);
+		// set delivery manager variables
+		ITEM_DELIVERY_MANAGER = ep.getBoolean("DeliveryManager", true);
+
+		/* set https://hopzone.eu global reward variables */
+		HOPZONE_EU_GLOBAL_REWARD = ep.getBoolean("HopZoneEuGlobalVoteReward", false);
+		HOPZONE_EU_SERVER_ID = ep.getInt("HopZoneEuServerID", 325339);
+		HOPZONE_EU_SERVER_API_KEY = ep.getString("HopZoneEuApiKey", "DEMO");
+		HOPZONE_EU_ANNOUNCE_STATISTICS = ep.getBoolean("HopZoneEuAnnounceStatistics", false);
+		HOPZONE_EU_VOTE_CHECK_DELAY = ep.getInt("HopZoneEuCheckDelay", 10);
+		HOPZONE_EU_VOTE_STEP = ep.getInt("HopZoneEuVoteStep", 20);
+		for (String global : ep.getString("HopZoneEuGlobalRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
+		{
+			String[] global_split = global.split(";");
+			for (String split : global_split)
+			{
+				String[] parts = split.split(",");
+				// Start Join the map
+				List<Long[]> temp = new ArrayList<>();
+				// Min-Max-Chance
+				temp.add(new Long[]
+				{
+					Long.parseLong(parts[1].split("-")[0]),
+					Long.parseLong(parts[1].split("-")[1]),
+					Long.parseLong(parts[1].split("-")[2]),
+				});
+				HOPZONE_EU_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+			}
+		}
+		// set https://hopzone.eu individual variables
+		HOPZONE_EU_INDIVIDUAL_REWARD = ep.getBoolean("HopZoneEuIndividualReward", false);
+		for (String individual : ep.getString("HopZoneEuIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
+		{
+			String[] individual_split = individual.split(";");
+			for (String split : individual_split)
+			{
+				String[] parts = split.split(",");
+				// Start Join the map
+				List<Long[]> temp = new ArrayList<>();
+				// Min-Max-Chance
+				temp.add(new Long[]
+				{
+					Long.parseLong(parts[1].split("-")[0]),
+					Long.parseLong(parts[1].split("-")[1]),
+					Long.parseLong(parts[1].split("-")[2]),
+				});
+				HOPZONE_EU_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+			}
+		}
 
 		// set itopz global reward variables
 		ITOPZ_GLOBAL_REWARD = ep.getBoolean("iTopZGlobalVoteReward", false);
@@ -219,11 +277,11 @@ public class Configurations
 		}
 
 		// set hopzone global reward variables
-		HOPZONE_GLOBAL_REWARD = ep.getBoolean("HopzoneGlobalVoteReward", false);
-		HOPZONE_SERVER_API_KEY = ep.getString("HopzoneApiKey", "DEMO");
-		HOPZONE_ANNOUNCE_STATISTICS = ep.getBoolean("HopzoneAnnounceStatistics", false);
-		HOPZONE_VOTE_CHECK_DELAY = ep.getInt("HopzoneCheckDelay", 10);
-		HOPZONE_VOTE_STEP = ep.getInt("HopzoneVoteStep", 20);
+		HOPZONE_NET_GLOBAL_REWARD = ep.getBoolean("HopzoneGlobalVoteReward", false);
+		HOPZONE_NET_SERVER_API_KEY = ep.getString("HopzoneApiKey", "DEMO");
+		HOPZONE_NET_ANNOUNCE_STATISTICS = ep.getBoolean("HopzoneAnnounceStatistics", false);
+		HOPZONE_NET_VOTE_CHECK_DELAY = ep.getInt("HopzoneCheckDelay", 10);
+		HOPZONE_NET_VOTE_STEP = ep.getInt("HopzoneVoteStep", 20);
 		for (String global : ep.getString("HopzoneGlobalRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
 		{
 			String[] global_split = global.split(";");
@@ -239,11 +297,11 @@ public class Configurations
 					Long.parseLong(parts[1].split("-")[1]),
 					Long.parseLong(parts[1].split("-")[2]),
 				});
-				HOPZONE_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+				HOPZONE_NET_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
 		// set hopzone individual variables
-		HOPZONE_INDIVIDUAL_REWARD = ep.getBoolean("HopzoneIndividualReward", false);
+		HOPZONE_NET_INDIVIDUAL_REWARD = ep.getBoolean("HopzoneIndividualReward", false);
 		for (String individual : ep.getString("HopzoneIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
 		{
 			String[] individual_split = individual.split(";");
@@ -259,7 +317,7 @@ public class Configurations
 					Long.parseLong(parts[1].split("-")[1]),
 					Long.parseLong(parts[1].split("-")[2]),
 				});
-				HOPZONE_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+				HOPZONE_NET_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
 
@@ -399,14 +457,14 @@ public class Configurations
 			}
 		}
 
-		// set l2topservers global reward variables
-		L2TOPSERVERS_GLOBAL_REWARD = ep.getBoolean("L2TopServersGlobalVoteReward", false);
-		L2TOPSERVERS_API_KEY = ep.getString("L2TopServersApiKey", "Hi");
-		L2TOPSERVERS_SERVER_ID = ep.getString("L2TopServersServerId", "Hi");
-		L2TOPSERVERS_SERVER_NAME = ep.getString("L2TopServersServerName", "Hi");
-		L2TOPSERVERS_ANNOUNCE_STATISTICS = ep.getBoolean("L2TopServersAnnounceStatistics", false);
-		L2TOPSERVERS_VOTE_CHECK_DELAY = ep.getInt("L2TopServersCheckDelay", 10);
-		L2TOPSERVERS_VOTE_STEP = ep.getInt("L2TopServersVoteStep", 20);
+		// set hotservers global reward variables
+		HOTSERVERS_GLOBAL_REWARD = ep.getBoolean("L2TopServersGlobalVoteReward", false);
+		HOTSERVERS_API_KEY = ep.getString("L2TopServersApiKey", "Hi");
+		HOTSERVERS_SERVER_ID = ep.getString("L2TopServersServerId", "Hi");
+		HOTSERVERS_SERVER_NAME = ep.getString("L2TopServersServerName", "Hi");
+		HOTSERVERS_ANNOUNCE_STATISTICS = ep.getBoolean("L2TopServersAnnounceStatistics", false);
+		HOTSERVERS_VOTE_CHECK_DELAY = ep.getInt("L2TopServersCheckDelay", 10);
+		HOTSERVERS_VOTE_STEP = ep.getInt("L2TopServersVoteStep", 20);
 		for (String global : ep.getString("L2TopServersGlobalRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
 		{
 			String[] global_split = global.split(";");
@@ -422,11 +480,11 @@ public class Configurations
 					Long.parseLong(parts[1].split("-")[1]),
 					Long.parseLong(parts[1].split("-")[2]),
 				});
-				L2TOPSERVERS_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+				HOTSERVERS_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
 		// set l2network individual variables
-		L2TOPSERVERS_INDIVIDUAL_REWARD = ep.getBoolean("L2TopServersIndividualReward", false);
+		HOTSERVERS_INDIVIDUAL_REWARD = ep.getBoolean("L2TopServersIndividualReward", false);
 		for (String individual : ep.getString("L2TopServersIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
 		{
 			String[] individual_split = individual.split(";");
@@ -442,7 +500,7 @@ public class Configurations
 					Long.parseLong(parts[1].split("-")[1]),
 					Long.parseLong(parts[1].split("-")[2]),
 				});
-				L2TOPSERVERS_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+				HOTSERVERS_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
 
