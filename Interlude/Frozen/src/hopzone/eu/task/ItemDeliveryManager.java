@@ -47,7 +47,7 @@ import java.util.Optional;
  * VDS Stands for: Vote Delivery System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/

@@ -39,7 +39,7 @@ import hopzone.eu.util.VDSThreadPool;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -72,7 +72,7 @@ public class VDSystem
 	public void onLoad()
 	{
 		// check if allowed the donation system to run
-		if (Configurations.ITOPZ_DONATE_MANAGER)
+		if (Configurations.ITEM_DELIVERY_MANAGER)
 		{
 			// start donation manager
 			VDSThreadPool.scheduleAtFixedRate(new ItemDeliveryManager(), 100, 5000);
