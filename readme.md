@@ -1,13 +1,11 @@
 # VDSystem 
 ## Vote System & Donate System for Java based Lineage2 Servers ***all in one***
-**DenArt Designs _[Automatic Donation Panels](https://www.denart-designs.com/)_ are supported by this system**
+**DenArt Designs _[Automatic Donation Panels](https://shop.denart-designs.com/)_ are supported by this system**
 #
 ## VDSystem supports 7 Topsites on 58 Projects and 2 Donation Systems
 
-### Keep project alive by Donating here: [Donate](https://www.paypal.com/paypalme/itopz)
+### Keep project alive by Donating here: [Paypal](https://paypal.me/top100)
 
-For anonymous donations
-- Send an email with your donated value at info@denart-designs.com
 #
 <a href="https://www.revolvermaps.com/livestats/5ffw649icr5/"><img src="https://rf.revolvermaps.com/h/m/a/1/ff0000/256/10/5ffw649icr5.png" width="512" height="256" alt="Map" style="border:0;"></a>
 #
@@ -19,31 +17,35 @@ For anonymous donations
    - [x] Auto Donation Reward
       - Free: Hosted [https://itopz.com](https://itopz.com/)
       - Paid: your host + install [https://shop.denart-designs.com](https://shop.denart-designs.com)
-   - [x] Hopzone Reward Global (Automatic)
-   - [x] Hopzone Reward Individual (Player command)
-   - [x] L2Network Reward Global (Automatic)
-   - [x] L2Network Reward Individual (Player command)
+   - [x] Hopzone Eu Reward Global (Automatic)
+   - [x] Hopzone Eu Reward Individual (Player command)
    - [x] iTopZ Reward Global (Automatic)
    - [x] iTopZ Reward Individual (Player command)
+   - [x] HotServers Reward Global (Automatic)
+   - [x] HotServers Reward Individual (Player command)
+   - [x] Hopzone Net Reward Global (Automatic)
+   - [x] Hopzone Net Reward Individual (Player command)
+   - [x] L2Network Reward Global (Automatic)
+   - [x] L2Network Reward Individual (Player command)
    - [x] L2TopGameServer Reward Global (Automatic)
    - [x] L2TopGameServer Reward Individual (Player command)
-   - [x] L2TopServers Reward Global (Automatic)
-   - [x] L2TopServers Reward Individual (Player command)
    - [x] L2JBrasil Reward Global (Automatic)
    - [x] L2JBrasil Reward Individual (Player command)
    - [x] L2Votes Reward Global (Automatic)
    - [x] L2Votes Reward Individual (Player command)
 - **Supported vote sites**
+   - [x] HOPZONE Eu (NEW)
+      - Website [https://hopzone.eu/](https://hopzone.eu/)
    - [x] ITOPZ
       - Website [https://itopz.com](https://itopz.com/)
-   - [x] HOPZONE
+   - [x] HOPZONE Net
       - Website [https://hopzone.net/](https://hopzone.net/)
    - [x] L2TOPGAMESERVER
       - Website [https://l2.topgameserver.net/](https://l2.topgameserver.net/)
    - [x] L2NETWORK
       - Website [https://l2network.eu/](https://l2network.eu/)
-   - [x] L2TOPSERVERS
-      - Website [https://l2topservers.com/](https://l2topservers.com/)
+   - [x] HOTSERVERS (NEW)
+      - Website [https://hotservers.org/](https://hotservers.org/)
    - [x] TOPL2JBRASIL
       - Website [https://top.l2jbrasil.com/](https://top.l2jbrasil.com/)
    - [x] L2VOTES
@@ -54,247 +56,254 @@ For anonymous donations
 - **Supported Projects**
   - **Scions of Destiny**
     - [x] Lisvus
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Scions%20of%20Destiny/Lisvus/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Lisvus)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Scions%20of%20Destiny/Lisvus/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Scions%20of%20Destiny/Lisvus/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lisvus)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Scions%20of%20Destiny/Lisvus/Patch.diff)
+    - [x] Lisvus JDK17
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Scions%20of%20Destiny/Lisvus_JDK17/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lisvus_JDK17)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Scions%20of%20Destiny/Lisvus_JDK17/Patch.diff)
   - **Interlude**
     - [x] LUCERA
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/lucera/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Lucera)
-    - [x] ACIS
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/aCis/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/aCis)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/aCis/Patch.diff)
-    - [x] FROZEN 1118 JDK8 and 1132 JDK7
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Frozen/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Frozen)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/Frozen/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/lucera/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lucera)
+    - [x] LUCERA NO GUI
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/lucera_NO_GUI/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lucera_NO_GUI)
+    - [x] ACIS 401
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/aCis/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/aCis)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Interlude/aCis/Patch.diff)
+    - [x] FROZEN 1118 JDK8
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Frozen/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Frozen)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Interlude/Frozen/Patch.diff)
+    - [x] FROZEN 1132 JDK7
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Frozen_JDK7/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Frozen_JDK7)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Interlude/Frozen_JDK7/Patch.diff)
     - [x] HELLAS
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Interlude/Hellas/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Hellas)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Interlude/Hellas/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Hellas/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Hellas)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Interlude/Hellas/Patch.diff)
   - **Freya**
     - [x] L2JDP
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Freya/L2JDP/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2JDP)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/Freya/L2JDP/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Freya/L2JDP/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/L2JDP)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Freya/L2JDP/Patch.diff)
   - **High Five**
     - [x] AVA
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/aVa/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/aVa)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/aVa/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/aVa/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/aVa)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/HighFive/aVa/Patch.diff)
     - [x] FANDC
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/FandC/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/FandC)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/FandC/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/blob/master/HighFive/FandC/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/FandC)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/HighFive/FandC/Patch.diff)
     - [x] L2JSERVER
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/blob/master/HighFive/L2JServer/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2JServer)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/blob/master/HighFive/L2JServer/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/L2JServer)
       - ~~Patch Download Patch~~
     - [x] MYTHRAS
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Mythras/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mythras)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Mythras/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Mythras/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mythras)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Mythras/Patch.diff)
     - [x] REMORSE
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Remorse/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Remorse)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Remorse/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Remorse/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Remorse)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Remorse/Patch.diff)
     - [x] SCRIPTS
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Scripts/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2Scripts)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Scripts/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Scripts/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/L2Scripts)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Scripts/Patch.diff)
     - [x] SCRIPTS ZAKEN
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/ScriptsZaken/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/L2ScriptsZaken)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/ScriptsZaken/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/ScriptsZaken/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/L2ScriptsZaken)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/ScriptsZaken/Patch.diff)
     - [x] SUNRISE
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Sunrise/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Sunrise)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/HighFive/Sunrise/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Sunrise/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Sunrise)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/HighFive/Sunrise/Patch.diff)
   - **Mobius Projects**
     - [x] L2J Mobius 1.0 Ertheia
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_01.0_Ertheia/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_01.0_Ertheia/Patch.diff)
     - [x] L2J Mobius 2.5 Underground
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_2.5_Underground/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_2.5_Underground/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_02.5_Underground/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_02.5_Underground/Patch.diff)
     - [x] L2J Mobius 3.0 Helios
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_3.0_Helios/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_3.0_Helios/Patch.diff)
-    - [x] L2J Mobius 4.0 GrandCrusade
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_4.0_GrandCrusade/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_4.0_GrandCrusade/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_03.0_Helios/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_03.0_Helios/Patch.diff)
+    - [x] L2J Mobius 4.0 Grand Crusade
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_04.0_GrandCrusade/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_04.0_GrandCrusade/Patch.diff)
     - [x] L2J Mobius 5.0 Salvation
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.0_Salvation/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.0_Salvation/Patch.diff)
-    - [x] L2J Mobius 5.5 EtinasFate
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.5_EtinasFate/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.5_EtinasFate/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_05.0_Salvation/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_05.0_Salvation/Patch.diff)
+    - [x] L2J Mobius 5.5 Etinas Fate
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_05.5_EtinasFate/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_05.5_EtinasFate/Patch.diff)
     - [x] L2J Mobius 6.0 Fafurion
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_6.0_Fafurion/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_6.0_Fafurion/Patch.diff)
-    - [x] L2J Mobius 7.0 PreludeOfWar
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_7.0_PreludeOfWar/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_7.0_PreludeOfWar/Patch.diff)
-    - [ ] L2J Mobius C1 HarbingersOfWar
-      - ~~Info Download Source~~
-      - ~~Release Download Compiled Jar~~
-      - ~~Patch Download Patch~~
-    - [x] L2J Mobius C4 ScionsOfDestiny
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_C4_ScionsOfDestiny/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_C4_ScionsOfDestiny/Patch.diff)
-    - [x] L2J Mobius C6 Interlude
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_C6_Interlude/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_C6_Interlude/Patch.diff)
-    - [x] L2J Mobius CT 2.4 Epilogue
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_CT_2.4_Epilogue/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_CT_2.4_Epilogue/Patch.diff)
-    - [x] L2J Mobius CT 2.6 HighFive
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_CT_2.6_HighFive/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_CT_2.6_HighFive/Patch.diff)
-    - [x] L2J Mobius Classic 2.0 Saviors
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.0_Saviors/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.0_Saviors/Patch.diff)
-    - [x] L2J Mobius Classic 2.1 Zaken
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.1_Zaken/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.1_Zaken/Patch.diff)
-    - [x] L2J Mobius Classic 2.2 Antharas
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.2_Antharas/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.2_Antharas/Patch.diff)
-    - [x] L2J Mobius Classic 2.3 SevenSigns
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.3_SevenSigns/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.3_SevenSigns/Patch.diff)
-    - [x] L2J Mobius Classic 2.4 SecretOfEmpire
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_2.4_SecretOfEmpire/Patch.diff)
-    - [x] L2J Mobius Classic 3.0 TheKamael
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_3.0_TheKamael/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_3.0_TheKamael/Patch.diff)
-    - [x] L2J Mobius Classic Interlude
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_Interlude/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/Mobius)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_Classic_Interlude/Patch.diff)
-  - **Mobius Premium Projects**
-    - [x] L2J Mobius 1.0 Ertheia
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_1.0_Ertheia/Patch.diff)
-    - [x] L2J Mobius 2.5 Underground
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_2.5_Underground/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_2.5_Underground/Patch.diff)
-    - [x] L2J Mobius 3.0 Helios
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_3.0_Helios/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_3.0_Helios/Patch.diff)
-    - [x] L2J Mobius 4.0 GrandCrusade
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_4.0_GrandCrusade/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_4.0_GrandCrusade/Patch.diff)
-    - [x] L2J Mobius 5.0 Salvation
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.0_Salvation/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.0_Salvation/Patch.diff)
-    - [x] L2J Mobius 5.5 EtinasFate
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.5_EtinasFate/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_5.5_EtinasFate/Patch.diff)
-    - [x] L2J Mobius 6.0 Fafurion
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_6.0_Fafurion/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_6.0_Fafurion/Patch.diff)
-    - [x] L2J Mobius 7.0 PreludeOfWar
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_7.0_PreludeOfWar/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/Mobius/L2J_Mobius_7.0_PreludeOfWar/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_06.0_Fafurion/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_06.0_Fafurion/Patch.diff)
+    - [x] L2J Mobius 7.0 Prelude of War
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_07.0_PreludeOfWar/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_07.0_PreludeOfWar/Patch.diff)
     - [x] L2J Mobius 8.2 Homunculus
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.2_Homunculus/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_8.2_Homunculus/Patch.diff)
-    - [x] L2J Mobius 9.2 Return of the Queen Ant Ch 2
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.2_ReturnOfTheQueenAntCh2/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_9.2_ReturnOfTheQueenAntCh2/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_08.2_Homunculus/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_08.2_Homunculus/Patch.diff)
+    - [x] L2J Mobius 9.2 Return of the Queen Ant
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_09.2_ReturnOfTheQueenAnt/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_09.2_ReturnOfTheQueenAnt/Patch.diff)
+    - [x] L2J Mobius 10.2 Master Class
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_10.2_MasterClass/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_10.2_MasterClass/Patch.diff)
+    - [x] L2J Mobius 10.3 Master Class
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_10.3_MasterClass/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_10.3_MasterClass/Patch.diff)
+    - [x] L2J Mobius 11.0 The Source of Flame
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_11.0_TheSourceOfFlame/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_11.0_TheSourceOfFlame/Patch.diff)
     - [ ] L2J Mobius C1 HarbingersOfWar
       - ~~Info Download Source~~
       - ~~Release Download Compiled Jar~~
       - ~~Patch Download Patch~~
     - [x] L2J Mobius C4 ScionsOfDestiny
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_C4_ScionsOfDestiny/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_C4_ScionsOfDestiny/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_C4_ScionsOfDestiny/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_C4_ScionsOfDestiny/Patch.diff)
     - [x] L2J Mobius C6 Interlude
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_C6_Interlude/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_C6_Interlude/Patch.diff)
-    - [x] L2J Mobius CT 2.4 Epilogue
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_CT_2.4_Epilogue/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_CT_2.4_Epilogue/Patch.diff)
-    - [x] L2J Mobius CT 2.6 HighFive
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_CT_2.6_HighFive/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_CT_2.6_HighFive/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_C6_Interlude/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_C6_Interlude/Patch.diff)
+    - [x] L2J Mobius Classic 1.0
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_1.0/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_1.0/Patch.diff)
+    - [x] L2J Mobius Classic 1.5
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_1.5_AgeOfSplendor/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_1.5_AgeOfSplendor/Patch.diff)
     - [x] L2J Mobius Classic 2.0 Saviors
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.0_Saviors/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.0_Saviors/Patch.diff)
-    - [x] L2J Mobius Classic 2.1 Zaken
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.1_Zaken/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.1_Zaken/Patch.diff)
-    - [x] L2J Mobius Classic 2.2 Antharas
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.2_Antharas/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.2_Antharas/Patch.diff)
-    - [x] L2J Mobius Classic 2.3 SevenSigns
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.3_SevenSigns/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.3_SevenSigns/Patch.diff)
-    - [x] L2J Mobius Classic 2.4 SecretOfEmpire
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.4_SecretOfEmpire/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_2.4_SecretOfEmpire/Patch.diff)
-    - [x] L2J Mobius Classic 3.0 TheKamael
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_3.0_TheKamael/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_3.0_TheKamael/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.0_Saviors/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.0_Saviors/Patch.diff)
+    - [x] L2J Mobius Classic 2.5 Zaken
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.5_Zaken/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.5_Zaken/Patch.diff)
+    - [x] L2J Mobius Classic 2.7 Antharas
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.7_Antharas/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.7_Antharas/Patch.diff)
+    - [x] L2J Mobius Classic 2.8 Seven Signs
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.8_SevenSigns/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.8_SevenSigns/Patch.diff)
+    - [x] L2J Mobius Classic 2.9.5 Saviors
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.9.5_Saviors/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.9.5_Saviors/Patch.diff)
+    - [x] L2J Mobius Classic 2.9 Secret of Empire
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.9_SecretOfEmpire/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_2.9_SecretOfEmpire/Patch.diff)
+    - [x] L2J Mobius Classic 3.0 The Kamael
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_3.0_TheKamael/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_3.0_TheKamael/Patch.diff)
     - [x] L2J Mobius Classic Interlude
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_Interlude/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Classic_Interlude/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_Interlude/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Classic_Interlude/Patch.diff)
+    - [x] L2J Mobius CT 0 Interlude
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_CT_0_Interlude/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_CT_0_Interlude/Patch.diff)
+    - [x] L2J Mobius CT 2.4 Epilogue
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_CT_2.4_Epilogue/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_CT_2.4_Epilogue/Patch.diff)
+    - [x] L2J Mobius CT 2.6 High Five
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_CT_2.6_HighFive/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_CT_2.6_HighFive/Patch.diff)
     - [x] L2J Mobius Essence 4.2 Dwelling of Spirits
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_4.0_DwellingOfSpirits/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_4.0_DwellingOfSpirits/Patch.diff)
-    - [x] L2J Mobius Essence 5.2 FrostLord
-      - Info [Download Source](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.2_FrostLord)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/iTopZ-Java/releases/tag/MobiusPremium)
-      - Patch [Download Patch](https://github.com/nightw0lv/iTopZ-Java/tree/master/MobiusPremium/L2J_Mobius_Essence_5.2_FrostLord/Patch.diff)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_4.2_DwellingOfSpirits/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_4.2_DwellingOfSpirits/Patch.diff)
+    - [x] L2J Mobius Essence 5.2 Frost Lord
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_5.2_FrostLord/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_5.2_FrostLord/Patch.diff)
+    - [x] L2J Mobius Essence 6.2 Vanguard
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_6.2_Vanguard/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_6.2_Vanguard/Patch.diff)
+    - [x] L2J Mobius Essence 6.3 Crusader
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_6.3_Crusader/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_6.3_Crusader/Patch.diff)
+    - [x] L2J Mobius Essence 7.0 Assassin
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_7.0_Assassin/)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Mobius)
+      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/tree/master/Mobius/L2J_Mobius_Essence_7.0_Assassin/Patch.diff)
+
 
 **Credits**
 - ```Special thanks to Rationale``` :cry:
 
 
 **Chancelog**
+
+- Version 1.6
+  - Refactor Config for item delivery manager
+  - Update SQL enum in vds_* tables for new topsites
+  - Update millisecondsFromString() will print ServerTime and TimeZone on Gui
+  - Update getMyIP() ip check with SSL
+  - Added HOPZONE.EU topsite
+    - Added Individual URL
+    - Added global URL
+    - Added URL generation to fix IPv6 voter problem
+  - Added HOTSERVERS.ORG topsite
+    - Added Individual URL
+    - Added global URL
+  - Removed L2TOPSERVERS.COM
+  - Refactor for Hopzone into Hopzone Net
+  - Updated discord invitation
+  - Updated GitHub URL
+  - Added DenArt Designs panel URLs
+  - Fix checking array length to avoid possible errors when checking for json
+  - Added Gui Messages for website connection failures
+  - Added .vote command
+    - Window open showing the enabled vote commands
+    - Shows player IP Address
+    - Ignores Flood protection
+  - Split individual response on connection Execution method to implement the new way of IPv6 method fix
+  - GenerateVoteURL method will create a new url for player to vote
+    - Currently only new hopzone supports this
+    - New custom message on vote failure for the generated URL
+
+Note: This update finds L2JBrasil with broken Global API. (yes they broke it)
+Note: This update implements a new way for IPv6 players to get their reward
+Note: The new implementation works only on Hopzone right now.
+Note: The new Implementation is not up to this system in order to work but each topsite.
+
+TODO: Old lineage 2 clients don't support URL open in browser for players by default so its up to you to open the generated URL's on those chronicles with exception to Lucera that does that by default. There are code hints on where you should do that notably VoteCMD.java, these functions are also provided by some client protections like smartguard, sguard, and strixguard.
+
 
 - Version 1.5
   - Update VDS Mobius projects to the latest public git
