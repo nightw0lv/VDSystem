@@ -91,7 +91,7 @@ public class IndividualResponse extends IResponse
 				break;
 			case "ITOPZ":
 				_voteTime = response.getLong(TOPSITE.toLowerCase() + "_vote_time") * 1000;
-				_serverTime = response.getLong(TOPSITE.toLowerCase() + "serverTime") * 1000;
+				_serverTime = response.getLong(TOPSITE.toLowerCase() + "_server_time") * 1000;
 				_voteError = response.getString("error");
 				break;
 			case "HOPZONENET":
