@@ -146,9 +146,9 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 	
 	// commands
 	public final static String[] COMMANDS =
-		   {
-				 "vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes"
-		   };
+	{
+		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes"
+	};
 	
 	@Override
 	public boolean useVoicedCommand(String command, Player player, String s1)
@@ -243,6 +243,7 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 	 */
 	private void openWindow(Player player)
 	{
+		String IPAddress = player.getIP();
 		StringBuilder sb = new StringBuilder("<html>");
 		sb.append("<head>");
 		sb.append("<title>Vote for us!</title>");
@@ -251,7 +252,7 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		sb.append("<center>");
 		sb.append("<br><font color=\"cc9900\"><img src=\"L2UI_CH3.herotower_deco\" width=256 height=32></font><br>");
 		sb.append("<img src=\"L2UI.SquareWhite\" width=\"300\" height=\"1\">");
-		sb.append("<br>YOUR IP: " + _IPAddress + "<br>");
+		sb.append("<br>YOUR IP: " + IPAddress + "<br>");
 		sb.append("<table width=300 align=center>");
 		sb.append("<tr><td align=\"right\">Topsite</td><td align=\"left\">Action</td></tr>");
 		if (Configurations.HOPZONE_EU_INDIVIDUAL_REWARD)
