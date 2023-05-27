@@ -33,7 +33,13 @@ import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.item.ItemTemplate;
 import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
+import org.l2jmobius.gameserver.network.serverpackets.NpcHtmlMessage;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,7 +56,7 @@ import java.util.Objects;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Mobius Classic 2.7 Antharas
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -70,12 +76,14 @@ public class VoteCMD implements IVoicedCommandHandler
 	// vote site list
 	public static enum VoteSite
 	{
-		ITOPZ,
+		VOTE,
 		HOPZONE,
+		ITOPZ,
+		HOPZONENET,
 		L2TOPGAMESERVER,
 		L2NETWORK,
 		L2JBRASIL,
-		L2TOPSERVERS,
+		HOTSERVERS,
 		L2VOTES,
 	}
 
@@ -98,7 +106,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 */
 	private static class FloodProtectorHolder
 	{
-		public static final Duration EXTENSION = Duration.ofSeconds(10);
+		public static final Duration EXTENSION = Duration.ofSeconds(60);
 
 		private final VoteSite _site;
 
@@ -143,18 +151,21 @@ public class VoteCMD implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-		"itopz", "hopzone", "l2jbrasil", "l2network", "l2topgameserver", "l2topservers", "l2votes"
+		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes"
 	};
 
 	@Override
 	public boolean useVoicedCommand(String command, Player player, String s1)
 	{
+		int vote_id = 0;
 		final String TOPSITE = command.replace(".", "").toUpperCase();
 
 		// check if allowed the individual command to run
+		if (TOPSITE.equals("HOPZONE") && !Configurations.HOPZONE_EU_INDIVIDUAL_REWARD)
+			return false;
 		if (TOPSITE.equals("ITOPZ") && !Configurations.ITOPZ_INDIVIDUAL_REWARD)
 			return false;
-		if (TOPSITE.equals("HOPZONE") && !Configurations.HOPZONE_INDIVIDUAL_REWARD)
+		if (TOPSITE.equals("HOPZONENET") && !Configurations.HOPZONE_NET_INDIVIDUAL_REWARD)
 			return false;
 		if (TOPSITE.equals("L2TOPGAMESERVER") && !Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARD)
 			return false;
@@ -162,28 +173,103 @@ public class VoteCMD implements IVoicedCommandHandler
 			return false;
 		if (TOPSITE.equals("L2JBRASIL") && !Configurations.L2JBRASIL_INDIVIDUAL_REWARD)
 			return false;
-		if (TOPSITE.equals("L2TOPSERVERS") && !Configurations.L2TOPSERVERS_INDIVIDUAL_REWARD)
+		if (TOPSITE.equals("HOTSERVERS") && !Configurations.HOTSERVERS_INDIVIDUAL_REWARD)
 			return false;
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return false;
 
+		// vote info
+		if (command.equalsIgnoreCase(".VOTE"))
+		{
+			showHtmlWindow(player);
+			player.sendPacket(ActionFailed.STATIC_PACKET);
+			return false;
+		}
+		
 		// check topsite for flood actions
 		final FloodProtectorHolder holder = getFloodProtector(player, VoteSite.valueOf(TOPSITE));
 		if (holder.getLastAction() > System.currentTimeMillis())
 		{
-			sendMsg(player, "You can't use this command so fast!");
+			int seconds_remain = (int) (holder.getLastAction() - System.currentTimeMillis()) / 1000;
+			sendMsg(player, "You can't use ." + TOPSITE + " command so fast!");
+			player.sendMessage("Use the command again in " + seconds_remain + " seconds");
+			showHtmlWindow(player);
+			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return false;
 		}
 		holder.updateLastAction();
 
+		// generate vote id
+		if (command.equalsIgnoreCase(".HOPZONE"))
+			vote_id = generateVoteURL(TOPSITE);
+
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
 		{
-			VDSThreadPool.schedule(() -> Execute(player, TOPSITE), Random.get(1000, 10000));
+			if (vote_id > 0)
+			{
+				String VoteURL = "https://hopzone.eu/vote/" + Configurations.HOPZONE_EU_SERVER_ID + "/" + vote_id + "";
+				player.sendMessage("-----------------------------------");
+				player.sendMessage("You have 1 minute to vote in: ");
+				player.sendMessage(VoteURL);// TODO should open in players browser
+				//player.openUrl(VoteURL);// TODO should open in players browser
+				player.sendMessage("-----------------------------------");
+				int time = 60000;
+				final int vid = vote_id;
+				// wait until player votes in the given url
+				VDSThreadPool.schedule(() -> Execute(player, TOPSITE, vid), time);
+			}
+			// check normal IP Address vote
+			VDSThreadPool.schedule(() -> Execute(player, TOPSITE, 0), Random.get(1000, 5000));
 		}
 
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		return false;
+	}
+
+	private void showHtmlWindow(Player player)
+	{
+		String _IPAddress = player.getIPAddress();
+
+		final NpcHtmlMessage html = new NpcHtmlMessage(0);
+		StringBuilder sb = new StringBuilder("<html>");
+		sb.append("<head>");
+		sb.append("<title>Vote for us!</title>");
+		sb.append("</head>");
+		sb.append("<body>");
+		sb.append("<center>");
+		sb.append("<br><font color=\"cc9900\"><img src=\"L2UI_CH3.herotower_deco\" width=256 height=32></font><br>");
+		sb.append("<img src=\"L2UI.SquareWhite\" width=\"300\" height=\"1\">");
+		sb.append("<br>YOUR IP: " + _IPAddress + "<br>");
+		sb.append("<table width=300 align=center>");
+		sb.append("<tr><td align=center>Topsite</td><td>Command</td></tr>");
+		if (Configurations.HOPZONE_EU_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>Hopzone NEW:</td><td width=33%>.hopzone</td></tr>");
+		if (Configurations.ITOPZ_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>iTopZ:</td><td width=33%>.itopz</td></tr>");
+		if (Configurations.HOPZONE_NET_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>Hopzone net:</td><td width=33%>.hopzonenet</td></tr>");
+		if (Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>L2TopGameServer:</td><td width=33%>.l2topgameserver</td></tr>");
+		if (Configurations.L2NETWORK_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>L2Network:</td><td width=33%>.l2network</td></tr>");
+		if (Configurations.L2JBRASIL_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>L2JBrasil:</td><td width=33%>.l2jbrasil</td></tr>");
+		if (Configurations.HOTSERVERS_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>HOTSERVERS:</td><td width=33%>.hotservers</td></tr>");
+		if (Configurations.L2VOTES_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>L2VOTES:</td><td width=33%>.l2votes</td></tr>");
+		sb.append("</table>");
+		sb.append("<img src=\"L2UI.SquareWhite\" width=300 height=1>");
+		sb.append("<img src=\"Sek.cbui371\" width=\"300\" height=\"1\">");
+		sb.append("<font color=\"cc9900\"><img src=\"L2UI_CH3.herotower_deco\" width=256 height=32></font><br1>");
+		sb.append("<img src=l2ui.bbs_lineage2 height=16 width=80>");
+		sb.append("</center>");
+		sb.append("</body>");
+		sb.append("</html>");
+
+		html.setHtml(sb.toString());
+		player.sendPacket(html);
 	}
 
 
@@ -197,7 +283,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	private boolean playerChecksFail(final Player player, final String TOPSITE)
 	{
 		// check for private network (website will not accept it)
-		if (!Configurations.DEBUG && (Utilities.localIp(player.getClient().getIp())))
+		if (!Configurations.DEBUG && Utilities.localIp(player.getClient().getIp()) && !TOPSITE.equals("HOPZONE"))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return true;
@@ -233,14 +319,27 @@ public class VoteCMD implements IVoicedCommandHandler
 
 	/**
 	 * Execute individual response and reward player on success
+	 * response url depends on a vote id is given or not
 	 *
 	 * @param player  object
 	 * @param TOPSITE string
+	 * @param vote_id int
 	 */
-	private void Execute(final Player player, final String TOPSITE)
+	private void Execute(final Player player, final String TOPSITE, final int vote_id)
 	{
-		// get response from itopz about this ip address
-		Optional.ofNullable(IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL").toString(), _IPAddress).connect(TOPSITE, VDSystem.VoteType.INDIVIDUAL)).ifPresent(response ->
+		if (TOPSITE.equals("VOTE"))
+			return;
+		IndividualResponse iResponse;
+		if (vote_id == 0)
+		{
+			iResponse = IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL_IP").toString(), _IPAddress);
+		}
+		else
+		{
+			iResponse = IndividualResponse.OPEN(Url.from(TOPSITE + "_INDIVIDUAL_URL_VOTE_ID").toString(), vote_id + "");
+		}
+		// get response from topsite about this ip address
+		Optional.ofNullable(iResponse.connect(TOPSITE, VDSystem.VoteType.INDIVIDUAL)).ifPresent(response ->
 		{
 			// set variables
 			final StatSet set = new StatSet();
@@ -251,7 +350,7 @@ public class VoteCMD implements IVoicedCommandHandler
 			set.set("response_error", response.getError());
 
 			// player can get reward?
-			if (isEligible(player, TOPSITE, set))
+			if (isEligible(player, TOPSITE, set, vote_id))
 			{
 				sendMsg(player, "Successfully voted in " + TOPSITE + "!" + (Configurations.DEBUG ? "(DEBUG ON)" : ""));
 				reward(player, TOPSITE);
@@ -261,6 +360,83 @@ public class VoteCMD implements IVoicedCommandHandler
 			}
 		});
 	}
+	
+	/**
+	 * generate unique vote id for player, so he can vote on it
+	 * this will prevent players with IPv6 to lose their reward
+	 * @implNote not all topsites support this feature
+	 *
+	 * @param TOPSITE string
+	 * @return vote_id int
+	 */
+	private int generateVoteURL(final String TOPSITE)
+	{
+		int vote_id = 0;
+		try
+		{
+			// Specify the URL of the remote JSON resource
+			String urlString = Url.from(TOPSITE + "_INDIVIDUAL_GENERATE_VOTE").toString();
+
+			// Create a URL object from the specified URL string
+			URL url = new URL(urlString);
+
+			// Open a connection to the URL
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+			// Set the request method
+			connection.setRequestMethod("GET");
+
+			// Get the response code
+			int responseCode = connection.getResponseCode();
+
+			// Check if the request was successful (HTTP 200)
+			if (responseCode == HttpURLConnection.HTTP_OK)
+			{
+				// Create a BufferedReader to read the response
+				BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+				// Read the response line by line
+				String line;
+				StringBuilder response = new StringBuilder();
+				while ((line = reader.readLine()) != null)
+				{
+					response.append(line);
+				}
+				reader.close();
+
+				// Convert the response to a JSON string
+				String jsonString = response.toString();
+
+				String[] split;
+				for (String s : jsonString.replaceAll("[{}\"]", "").replace("result:", "").split(","))
+				{
+					if (s == null)
+						continue;
+
+					split = s.split(":");
+					if (Configurations.DEBUG)
+					{
+						if (split.length >= 2)
+						{
+							Gui.getInstance().ConsoleWrite(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
+						}
+					}
+					if (split[0].contains("vote_id"))
+					{
+						vote_id = Integer.parseInt(split[1].trim());
+						Gui.getInstance().ConsoleWrite(TOPSITE + " Vote ID Generated: " + vote_id);
+					}
+				}
+			}
+			// Disconnect the connection
+			connection.disconnect();
+		}
+		catch (IOException e)
+		{
+			Gui.getInstance().ConsoleWrite(TOPSITE + " generateVoteURL() error: " + e.getMessage());
+		}
+		return vote_id;
+	}
 
 	/**
 	 * Return true if player is eligible to get a reward
@@ -268,7 +444,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 * @param player object
 	 * @return boolean
 	 */
-	private boolean isEligible(final Player player, final String TOPSITE, final StatSet set)
+	private boolean isEligible(final Player player, final String TOPSITE, final StatSet set, final int vote_id)
 	{
 		final int _responseCode = set.getInt("response_code");
 		final boolean _hasVoted = set.getBoolean("has_voted");
@@ -297,7 +473,14 @@ public class VoteCMD implements IVoicedCommandHandler
 		// player has not voted
 		if (!_hasVoted)
 		{
-			sendMsg(player, "You didn't vote at " + TOPSITE + ".");
+			if (vote_id == 0)
+			{
+				sendMsg(player, "You didn't vote at " + TOPSITE + ".");
+			}
+			else
+			{
+				sendMsg(player, "You didn't vote at " + TOPSITE + " generated URL try again.");
+			}
 			return false;
 		}
 
