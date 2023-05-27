@@ -22,6 +22,7 @@
 package hopzone.eu.model.base;
 
 import hopzone.eu.vote.VDSystem;
+import hopzone.eu.gui.Gui;
 import hopzone.eu.Configurations;
 import hopzone.eu.util.Json;
 import hopzone.eu.util.Logs;
@@ -46,7 +47,7 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Mobius Classic 3.0 TheKamael
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
