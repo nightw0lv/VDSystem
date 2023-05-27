@@ -51,7 +51,7 @@ import java.util.Locale;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Mobius Classic 2.8 SevenSigns
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -62,29 +62,29 @@ import java.util.Locale;
  */
 public class Utilities
 {
-	public static final String CREATE_DELIVERY_TABLE = "CREATE TABLE `user_item_delivery`  (" +
-			"    `id` int NOT NULL AUTO_INCREMENT," +
-			"    `item_id` int NOT NULL," +
-			"    `item_count` int NOT NULL," +
-			"    `char_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL," +
-			"    `status` int NOT NULL DEFAULT 0," +
-			"    `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL," +
-			"    PRIMARY KEY (`id`) USING BTREE" +
-			"  ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;";
+	public static final String CREATE_DELIVERY_TABLE = "CREATE TABLE `user_item_delivery` (" +
+		"  `id` int NOT NULL AUTO_INCREMENT," +
+		"  `item_id` int NOT NULL," +
+		"  `item_count` int NOT NULL," +
+		"  `char_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL," +
+		"  `status` int NOT NULL DEFAULT 0," +
+		"  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL," +
+		" PRIMARY KEY (`id`) USING BTREE" +
+		") ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;";
 	public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
-			"		id int(11) NOT NULL AUTO_INCREMENT," +
-			"		topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
-			"		var varchar(255) NOT NULL," +
-			"		value bigint(20) NOT NULL," +
-			"		ip varchar(65) NOT NULL," +
-			"		PRIMARY KEY (id)" +
-			"	) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+		"  `id` int(11) NOT NULL AUTO_INCREMENT," +
+		"  `topsite` enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS') NOT NULL," +
+		"  `var` varchar(255) NOT NULL," +
+		"  `value` bigint(20) NOT NULL," +
+		"  `ip` varchar(65) NOT NULL," +
+		" PRIMARY KEY (id)" +
+		") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
-			"		topsite enum('ITOPZ','HOPZONE','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','L2TOPSERVERS') NOT NULL," +
-			"		var varchar(255) NOT NULL," +
-			"		value bigint(20) NOT NULL," +
-			"		PRIMARY KEY (topsite)" +
-			"	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
+		"  `topsite` enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS') NOT NULL," +
+		"  `var` varchar(255) NOT NULL," +
+		"  `value` bigint(20) NOT NULL," +
+		" PRIMARY KEY (topsite)" +
+		") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
 	public static final String DELETE_DELIVERY_TABLE = "DROP TABLE IF EXISTS `user_item_delivery`;";
 	private static final String DELETE_INDIVIDUAL_TABLE = "DROP TABLE IF EXISTS vds_individual;";
 	private static final String DELETE_GLOBAL_TABLE = "DROP TABLE IF EXISTS vds_global;";
@@ -124,7 +124,7 @@ public class Utilities
 	}
 
 	/**
-	 * Delete Donate Table
+	 * Delete Delivery Table
 	 */
 	public static void deleteTable(final String QUERY, final String TABLE)
 	{
@@ -142,7 +142,7 @@ public class Utilities
 	}
 
 	/**
-	 * Create Donate Table
+	 * Create Delivery Table
 	 */
 	public static void createTable(final String QUERY, final String TABLE)
 	{
@@ -394,7 +394,8 @@ public class Utilities
 	 */
 	public static long millisecondsFromString(String ServerTime, String TimeZone)
 	{
-		if (ServerTime == null || TimeZone == null)
+		Gui.getInstance().ConsoleWrite("ServerTime: " + ServerTime + " TimeZone: " + TimeZone);
+		if (ServerTime == null || TimeZone == null || ServerTime == "NONE")
 			return -4;
 		try
 		{
@@ -416,7 +417,7 @@ public class Utilities
 	public static String getMyIP()
 	{
 		String ip = Random.get(0, 254) + "." + Random.get(0, 254) + "." + Random.get(0, 254) + "." + Random.get(0, 254);
-		try (BufferedReader in = new BufferedReader(new InputStreamReader(new URL("http://checkip.amazonaws.com").openStream())))
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(new URL("https://checkip.amazonaws.com").openStream())))
 		{
 			ip = in.readLine();
 		}
