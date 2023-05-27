@@ -256,21 +256,21 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		sb.append("<table width=300 align=center>");
 		sb.append("<tr><td align=\"right\">Topsite</td><td align=\"left\">Action</td></tr>");
 		if (Configurations.HOPZONE_EU_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>Hopzone</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check hopzone\">Reward</a></td></tr>");
+			sb.append("<tr><td>Hopzone</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check hopzone\">Reward</a></td></tr>");
 		if (Configurations.ITOPZ_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>iToPz</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check itopz\">Reward</a></td></tr>");
+			sb.append("<tr><td>iToPz</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check itopz\">Reward</a></td></tr>");
 		if (Configurations.HOPZONE_NET_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>Hopzonenet</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check hopzonenet\">Reward</a></td></tr>");
+			sb.append("<tr><td>Hopzonenet</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check hopzonenet\">Reward</a></td></tr>");
 		if (Configurations.L2TOPGAMESERVER_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>L2TOPGAMESERVER</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2topgameserver\">Reward</a></td></tr>");
+			sb.append("<tr><td>L2TOPGAMESERVER</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check l2topgameserver\">Reward</a></td></tr>");
 		if (Configurations.L2NETWORK_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>L2NETWORK</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2network\">Reward</a></td></tr>");
+			sb.append("<tr><td>L2NETWORK</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check l2network\">Reward</a></td></tr>");
 		if (Configurations.L2JBRASIL_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>L2JBRASIL</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2jbrasil\">Reward</a></td></tr>");
+			sb.append("<tr><td>L2JBRASIL</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check l2jbrasil\">Reward</a></td></tr>");
 		if (Configurations.HOTSERVERS_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>HOTSERVERS</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check hotservers\">Reward</a></td></tr>");
+			sb.append("<tr><td>HOTSERVERS</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check hotservers\">Reward</a></td></tr>");
 		if (Configurations.L2VOTES_INDIVIDUAL_REWARD)
-			sb.append("<tr><td>L2VOTES</td><td align=center width=33%><a action=\"bypass -h scripts_itopz.com.command.VoteCMD:check l2votes\">Reward</a></td></tr>");
+			sb.append("<tr><td>L2VOTES</td><td align=center width=33%><a action=\"bypass -h scripts_hopzone.eu.command.VoteCMD:check l2votes\">Reward</a></td></tr>");
 		sb.append("</table>");
 		sb.append("<img src=\"L2UI.SquareWhite\" width=300 height=1>");
 		sb.append("<img src=\"Sek.cbui371\" width=\"300\" height=\"1\">");
