@@ -1,6 +1,6 @@
 **VDS Vote Donate System**
 
-Implementation of vote global and individual system with itopz donate panel task manager.
+Implementation of vote global and individual system with item delivery manager.
 -
 - Global vote reward is when players vote for the server in one of the topsites installed as a "thank you" they will receive configured item/items reward.
 - Individual vote reward is when a single player (individual) vote for the server on one or more topsites and for each vote as a "thank you" he will receive configured item/items reward.
@@ -16,7 +16,7 @@ Implementation of vote global and individual system with itopz donate panel task
 
 **Build**
 - File ```VDSystem.jar```
-- Version: 1.5
+- Version: 1.6
 
 **Global vote system**
 
@@ -83,6 +83,42 @@ Implementation of vote global and individual system with itopz donate panel task
 ![https://prnt.sc/w6zzcs](../../images/7.png)
 
 **Chancelog**
+
+- Version 1.6
+  - Refactor Config for item delivery manager
+  - Update SQL enum in vds_* tables for new topsites
+  - Update millisecondsFromString() will print ServerTime and TimeZone on Gui
+  - Update getMyIP() ip check with SSL
+  - Added HOPZONE.EU topsite
+    - Added Individual URL
+    - Added global URL
+    - Added URL generation to fix IPv6 voter problem
+  - Added HOTSERVERS.ORG topsite
+    - Added Individual URL
+    - Added global URL
+  - Removed L2TOPSERVERS.COM
+  - Refactor for Hopzone into Hopzone Net
+  - Updated discord invitation
+  - Updated GitHub URL
+  - Added DenArt Designs panel URLs
+  - Fix checking array length to avoid possible errors when checking for json
+  - Added Gui Messages for website connection failures
+  - Added .vote command
+    - Window open showing the enabled vote commands
+    - Shows player IP Address
+    - Ignores Flood protection
+  - Split individual response on connection Execution method to implement the new way of IPv6 method fix
+  - GenerateVoteURL method will create a new url for player to vote
+    - Currently only new hopzone supports this
+    - New custom message on vote failure for the generated URL
+
+Note: This update finds L2JBrasil with broken Global API. (yes they broke it)
+Note: This update implements a new way for IPv6 players to get their reward
+Note: The new implementation works only on Hopzone right now.
+Note: The new Implementation is not up to this system in order to work but each topsite.
+
+TODO: Old lineage 2 clients don't support URL open in browser for players by default so its up to you to open the generated URL's on those chronicles with exception to Lucera that does that by default. There are code hints on where you should do that notably VoteCMD.java, these functions are also provided by some client protections like smartguard, sguard, and strixguard.
+
 
 - Version 1.5
   - Update VDS Mobius projects to the latest public git
