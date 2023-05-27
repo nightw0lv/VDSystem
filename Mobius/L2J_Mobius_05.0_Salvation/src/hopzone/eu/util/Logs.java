@@ -33,7 +33,7 @@ import java.util.logging.Logger;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Mobius 05.0 Salvation
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
