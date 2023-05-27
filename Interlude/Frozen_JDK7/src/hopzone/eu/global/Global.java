@@ -44,7 +44,7 @@ import java.util.Objects;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Frozen 1132 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -70,6 +70,20 @@ public class Global
 	 */
 	public Global()
 	{
+		// check if allowed the HOPZONE reward to start
+		if (Configurations.HOPZONE_EU_GLOBAL_REWARD)
+		{
+			VDSThreadPool.scheduleAtFixedRate(new Runnable()
+			{
+				@Override
+				public void run()
+				{
+					execute("HOPZONE");
+				}
+			}, 100, Configurations.HOPZONE_EU_VOTE_CHECK_DELAY * 1000);
+			_log.info(Global.class.getSimpleName() + ": HOPZONE reward started.");
+		}
+
 		// check if allowed the ITOPZ reward to start
 		if (Configurations.ITOPZ_GLOBAL_REWARD)
 		{
@@ -84,18 +98,18 @@ public class Global
 			_log.info(Global.class.getSimpleName() + ": ITOPZ reward started.");
 		}
 
-		// check if allowed the HOPZONE reward to start
-		if (Configurations.HOPZONE_GLOBAL_REWARD)
+		// check if allowed the HOPZONENET reward to start
+		if (Configurations.HOPZONE_NET_GLOBAL_REWARD)
 		{
 			VDSThreadPool.scheduleAtFixedRate(new Runnable()
 			{
 				@Override
 				public void run()
 				{
-					execute("HOPZONE");
+					execute("HOPZONENET");
 				}
-			}, 100, Configurations.HOPZONE_VOTE_CHECK_DELAY * 1000);
-			_log.info(Global.class.getSimpleName() + ": HOPZONE reward started.");
+			}, 100, Configurations.HOPZONE_NET_VOTE_CHECK_DELAY * 1000);
+			_log.info(Global.class.getSimpleName() + ": HOPZONENET reward started.");
 		}
 
 		// check if allowed the L2TOPGAMESERVER reward to start
@@ -140,18 +154,18 @@ public class Global
 			_log.info(Global.class.getSimpleName() + ": L2NETWORK reward started.");
 		}
 
-		// check if allowed the L2TOPSERVERS reward to start
-		if (Configurations.L2TOPSERVERS_GLOBAL_REWARD)
+		// check if allowed the HOTSERVERS reward to start
+		if (Configurations.HOTSERVERS_GLOBAL_REWARD)
 		{
 			VDSThreadPool.scheduleAtFixedRate(new Runnable()
 			{
 				@Override
 				public void run()
 				{
-					execute("L2TOPSERVERS");
+					execute("HOTSERVERS");
 				}
-			}, 100, Configurations.L2TOPSERVERS_VOTE_CHECK_DELAY * 1000);
-			_log.info(Global.class.getSimpleName() + ": L2TOPSERVERS reward started.");
+			}, 100, Configurations.HOTSERVERS_VOTE_CHECK_DELAY * 1000);
+			_log.info(Global.class.getSimpleName() + " :HOTSERVERS reward started.");
 		}
 
 		// check if allowed the L2VOTES reward to start
@@ -206,6 +220,10 @@ public class Global
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes:" + serverVotes + " Rank:" + serverRank + " Next Rank(" + serverNextRank + ") need: " + serverNeededVotes + "votes.");
 				Gui.getInstance().UpdateItopzStats(serverVotes, serverRank, serverNextRank, serverNeededVotes);
 				break;
+			case "HOPZONENET":
+				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
+				Gui.getInstance().UpdateHopzonenetStats(serverVotes);
+				break;
 			case "L2JBRASIL":
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateBrasilStats(serverVotes);
@@ -218,9 +236,9 @@ public class Global
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateTopGameServerStats(serverVotes);
 				break;
-			case "L2TOPSERVERS":
+			case "HOTSERVERS":
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
-				Gui.getInstance().UpdateTopServersStats(serverVotes);
+				Gui.getInstance().UpdateHotServersStats(serverVotes);
 				break;
 			case "L2VOTES":
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
@@ -261,17 +279,16 @@ public class Global
 		switch (TOPSITE)
 		{
 			case "HOPZONE":
-				if (Configurations.HOPZONE_ANNOUNCE_STATISTICS)
+				if (Configurations.HOPZONE_EU_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateHopzoneStats(serverVotes);
-
 				// check for vote step reward
-				if (serverVotes >= storedVotes + Configurations.HOPZONE_VOTE_STEP)
+				if (serverVotes >= storedVotes + Configurations.HOPZONE_EU_VOTE_STEP)
 				{
 					// reward all online players
 					reward(TOPSITE);
 				}
 				// announce next reward
-				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.HOPZONE_VOTE_STEP) + " votes!");
+				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.HOPZONE_EU_VOTE_STEP) + " votes!");
 				break;
 			case "ITOPZ":
 				if (Configurations.ITOPZ_ANNOUNCE_STATISTICS)
@@ -284,6 +301,18 @@ public class Global
 				}
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.ITOPZ_VOTE_STEP) + " votes!");
+				break;
+			case "HOPZONENET":
+				if (Configurations.HOPZONE_NET_ANNOUNCE_STATISTICS)
+					Gui.getInstance().UpdateHopzonenetStats(serverVotes);
+				// check for vote step reward
+				if (serverVotes >= storedVotes + Configurations.HOPZONE_NET_VOTE_STEP)
+				{
+					// reward all online players
+					reward(TOPSITE);
+				}
+				// announce next reward
+				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.HOPZONE_NET_VOTE_STEP) + " votes!");
 				break;
 			case "L2JBRASIL":
 				if (Configurations.L2JBRASIL_ANNOUNCE_STATISTICS)
@@ -321,17 +350,17 @@ public class Global
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2TOPGAMESERVER_VOTE_STEP) + " votes!");
 				break;
-			case "L2TOPSERVERS":
-				if (Configurations.L2TOPSERVERS_ANNOUNCE_STATISTICS)
-					Gui.getInstance().UpdateTopServersStats(serverVotes);
+			case "HOTSERVERS":
+				if (Configurations.HOTSERVERS_ANNOUNCE_STATISTICS)
+					Gui.getInstance().UpdateHotServersStats(serverVotes);
 				// check for vote step reward
-				if (serverVotes >= storedVotes + Configurations.L2TOPSERVERS_VOTE_STEP)
+				if (serverVotes >= storedVotes + Configurations.HOTSERVERS_VOTE_STEP)
 				{
 					// reward all online players
 					reward(TOPSITE);
 				}
 				// announce next reward
-				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2TOPSERVERS_VOTE_STEP) + " votes!");
+				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.HOTSERVERS_VOTE_STEP) + " votes!");
 				break;
 			case "L2VOTES":
 				if (Configurations.L2VOTES_ANNOUNCE_STATISTICS)
@@ -363,9 +392,10 @@ public class Global
 			try
 			{
 				key = Objects.requireNonNull(player.getClient().getConnection().getInetAddress().getHostAddress(), player.getName());
-			} catch (Exception e)
+			}
+			catch (Exception e)
 			{
-				e.getMessage();
+				e.printStackTrace();
 				continue;
 			}
 
