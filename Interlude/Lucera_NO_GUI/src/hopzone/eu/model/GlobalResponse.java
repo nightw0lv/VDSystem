@@ -34,7 +34,7 @@ import hopzone.eu.vote.VDSystem;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Lucera NO GUI
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -47,7 +47,7 @@ public class GlobalResponse extends IResponse
 {
 	// private variables
 	private static int _responseCode, _serverVotes, _serverRank, _serverNeededVotes, _serverNextRank;
-
+	
 	/**
 	 * constructor
 	 *
@@ -57,7 +57,7 @@ public class GlobalResponse extends IResponse
 	{
 		super(url);
 	}
-
+	
 	/**
 	 * override onFetch
 	 *
@@ -73,7 +73,7 @@ public class GlobalResponse extends IResponse
 		_serverNeededVotes = response.getInteger(TOPSITE.toLowerCase() + "_rank_votes");
 		_serverNextRank = response.getInteger(TOPSITE.toLowerCase() + "_next_rank");
 	}
-
+	
 	/**
 	 * Replace Url
 	 *
@@ -85,7 +85,7 @@ public class GlobalResponse extends IResponse
 	{
 		return retailURL;
 	}
-
+	
 	/**
 	 * Connect
 	 *
@@ -96,7 +96,7 @@ public class GlobalResponse extends IResponse
 	{
 		return (GlobalResponse) super.connect(TOPSITE, TYPE);
 	}
-
+	
 	/**
 	 * Returns response code
 	 *
@@ -106,7 +106,7 @@ public class GlobalResponse extends IResponse
 	{
 		return _responseCode;
 	}
-
+	
 	/**
 	 * Returns server votes
 	 *
@@ -116,7 +116,7 @@ public class GlobalResponse extends IResponse
 	{
 		return _serverVotes;
 	}
-
+	
 	/**
 	 * Returns server rank
 	 *
@@ -126,7 +126,7 @@ public class GlobalResponse extends IResponse
 	{
 		return _serverRank;
 	}
-
+	
 	/**
 	 * Returns server needed votes
 	 *
@@ -136,7 +136,7 @@ public class GlobalResponse extends IResponse
 	{
 		return _serverNeededVotes;
 	}
-
+	
 	/**
 	 * Returns server next rank
 	 *
@@ -146,7 +146,7 @@ public class GlobalResponse extends IResponse
 	{
 		return _serverNextRank;
 	}
-
+	
 	/**
 	 * Return response
 	 *

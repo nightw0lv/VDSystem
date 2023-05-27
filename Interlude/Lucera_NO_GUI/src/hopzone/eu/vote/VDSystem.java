@@ -38,7 +38,7 @@ import l2.gameserver.handler.voicecommands.VoicedCommandHandler;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Lucera NO GUI
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -51,12 +51,12 @@ public class VDSystem
 {
 	// logger
 	private static final Logs _log = new Logs(VDSystem.class.getSimpleName());
-
+	
 	public enum VoteType
 	{
 		GLOBAL, INDIVIDUAL;
 	}
-
+	
 	/**
 	 * Constructor
 	 */
@@ -64,36 +64,36 @@ public class VDSystem
 	{
 		onLoad();
 	}
-
+	
 	/**
 	 * Vod function on load
 	 */
 	public void onLoad()
 	{
 		// check if allowed the donation system to run
-		if (Configurations.ITOPZ_DONATE_MANAGER)
+		if (Configurations.ITEM_DELIVERY_MANAGER)
 		{
 			// start donation manager
 			VDSThreadPool.scheduleAtFixedRate(new ItemDeliveryManager(), 100, 5000);
-
+			
 			// initiate Donation reward
 			_log.info(ItemDeliveryManager.class.getSimpleName() + ": started.");
 		}
-
+		
 		// register individual reward command
 		VoicedCommandHandler.getInstance().registerVoicedCommandHandler(new VoteCMD());
-
+		
 		// load global system rewards
 		Global.getInstance();
-
+		
 		_log.info(VDSystem.class.getSimpleName() + ": System initialized.");
 	}
-
+	
 	public static VDSystem getInstance()
 	{
 		return SingletonHolder._instance;
 	}
-
+	
 	private static class SingletonHolder
 	{
 		protected static final VDSystem _instance = new VDSystem();

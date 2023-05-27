@@ -35,7 +35,7 @@ import hopzone.eu.vote.VDSystem;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Lucera NO GUI
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -53,7 +53,7 @@ public class IndividualResponse extends IResponse
 	private String _voteError;
 	private int _responseCode;
 	private final String _IPAddress;
-
+	
 	/**
 	 * Constructor
 	 *
@@ -65,7 +65,7 @@ public class IndividualResponse extends IResponse
 		super(url);
 		_IPAddress = IPAddress;
 	}
-
+	
 	/**
 	 * on fetch data set local variables
 	 *
@@ -80,15 +80,20 @@ public class IndividualResponse extends IResponse
 		_voteTime = -1;
 		_serverTime = -1;
 		_voteError = "NONE";
-
+		
 		switch (TOPSITE)
 		{
-			case "ITOPZ":
+			case "HOPZONE":
 				_voteTime = response.getLong(TOPSITE.toLowerCase() + "_vote_time") * 1000;
-				_serverTime = response.getLong(TOPSITE.toLowerCase() + "serverTime") * 1000;
+				_serverTime = response.getLong(TOPSITE.toLowerCase() + "_server_time") * 1000;
 				_voteError = response.getString("error");
 				break;
-			case "HOPZONE":
+			case "ITOPZ":
+				_voteTime = response.getLong(TOPSITE.toLowerCase() + "_vote_time") * 1000;
+				_serverTime = response.getLong(TOPSITE.toLowerCase() + "_server_time") * 1000;
+				_voteError = response.getString("error");
+				break;
+			case "HOPZONENET":
 				_voteTime = _hasVoted ? Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "US/Arizona") : -1;
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "US/Arizona");
 				_voteError = response.getString("errorMsg");
@@ -101,7 +106,7 @@ public class IndividualResponse extends IResponse
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Berlin");
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Berlin");
 				break;
-			case "L2TOPSERVERS":
+			case "HOTSERVERS":
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Athens");
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Athens");
 				break;
@@ -113,7 +118,7 @@ public class IndividualResponse extends IResponse
 				break;
 		}
 	}
-
+	
 	/**
 	 * Replace the url address
 	 *
@@ -125,7 +130,7 @@ public class IndividualResponse extends IResponse
 	{
 		return retailURL.replace("%IP%", _IPAddress);
 	}
-
+	
 	/**
 	 * Connection
 	 *
@@ -136,7 +141,7 @@ public class IndividualResponse extends IResponse
 	{
 		return (IndividualResponse) super.connect(TOPSITE, TYPE);
 	}
-
+	
 	/**
 	 * Returns response code
 	 *
@@ -146,7 +151,7 @@ public class IndividualResponse extends IResponse
 	{
 		return _responseCode;
 	}
-
+	
 	/**
 	 * Returns last error
 	 *
@@ -156,7 +161,7 @@ public class IndividualResponse extends IResponse
 	{
 		return _voteError;
 	}
-
+	
 	/**
 	 * Returns voted value
 	 *
@@ -166,7 +171,7 @@ public class IndividualResponse extends IResponse
 	{
 		return _hasVoted;
 	}
-
+	
 	/**
 	 * Returns server time value
 	 *
@@ -176,7 +181,7 @@ public class IndividualResponse extends IResponse
 	{
 		return _serverTime;
 	}
-
+	
 	/**
 	 * Returns vote time value
 	 *
@@ -186,7 +191,7 @@ public class IndividualResponse extends IResponse
 	{
 		return _voteTime;
 	}
-
+	
 	/**
 	 * Return response
 	 *

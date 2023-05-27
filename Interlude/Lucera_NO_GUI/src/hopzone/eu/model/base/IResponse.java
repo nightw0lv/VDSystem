@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Lucera NO GUI
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -126,7 +126,7 @@ public abstract class IResponse
 		catch (final FileNotFoundException fnfe)
 		{
 			if (Configurations.DEBUG)
-				_log.error("File:" + fnfe.getMessage(), fnfe);
+				_log.error("Socket:" + fnfe.getMessage(), fnfe);
 		}
 		catch (final Exception ex)
 		{

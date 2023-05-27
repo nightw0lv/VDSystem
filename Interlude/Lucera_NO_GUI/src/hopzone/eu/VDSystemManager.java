@@ -35,7 +35,7 @@ import l2.gameserver.scripts.ScriptFile;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Lucera NO GUI
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -48,33 +48,33 @@ public class VDSystemManager implements ScriptFile
 {
 	// logger
 	private static final Logs _log = new Logs(VDSystemManager.class.getSimpleName());
-
+	
 	@Override
 	public void onLoad()
 	{
 		_log.info("----------------------- VDS Manager -----------------------");
-
+		
 		// thread initiator
 		VDSThreadPool.init();
-
+		
 		// load configurations
 		Configurations.load();
-
+		
 		// load iTopz
 		VDSystem.getInstance();
-
+		
 		_log.info("-----------------------------------------------------------");
 	}
-
+	
 	@Override
 	public void onReload()
 	{
 		Configurations.load();
 	}
-
+	
 	@Override
 	public void onShutdown()
 	{
-
+	
 	}
 }
