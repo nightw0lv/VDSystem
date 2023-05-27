@@ -284,7 +284,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	private boolean playerChecksFail(final Player player, final String TOPSITE)
 	{
 		// check for private network (website will not accept it)
-		if (!Configurations.DEBUG && Utilities.localIp(player.getIP()))
+		if (!Configurations.DEBUG && Utilities.localIp(player.getIP()) && !TOPSITE.equals("HOPZONE"))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return true;
@@ -377,25 +377,25 @@ public class VoteCMD implements IVoicedCommandHandler
 		{
 			// Specify the URL of the remote JSON resource
 			String urlString = Url.from(TOPSITE + "_INDIVIDUAL_GENERATE_VOTE").toString();
-			
+
 			// Create a URL object from the specified URL string
 			URL url = new URL(urlString);
-			
+
 			// Open a connection to the URL
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			
+
 			// Set the request method
 			connection.setRequestMethod("GET");
-			
+
 			// Get the response code
 			int responseCode = connection.getResponseCode();
-			
+
 			// Check if the request was successful (HTTP 200)
 			if (responseCode == HttpURLConnection.HTTP_OK)
 			{
 				// Create a BufferedReader to read the response
 				BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-				
+
 				// Read the response line by line
 				String line;
 				StringBuilder response = new StringBuilder();
@@ -404,16 +404,16 @@ public class VoteCMD implements IVoicedCommandHandler
 					response.append(line);
 				}
 				reader.close();
-				
+
 				// Convert the response to a JSON string
 				String jsonString = response.toString();
-				
+
 				String[] split;
 				for (String s : jsonString.replaceAll("[{}\"]", "").replace("result:", "").split(","))
 				{
 					if (s == null)
 						continue;
-					
+
 					split = s.split(":");
 					if (Configurations.DEBUG)
 					{
@@ -438,7 +438,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		}
 		return vote_id;
 	}
-
+	
 	/**
 	 * Return true if player is eligible to get a reward
 	 *

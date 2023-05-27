@@ -69,14 +69,15 @@ public class Configurations
 	public static int VDS_CONSOLE_WIDTH;
 	public static int VDS_CONSOLE_HEIGHT;
 	
-	/* set https://hopzone.eu global reward variables*/ public static boolean HOPZONE_EU_GLOBAL_REWARD;
+	// set https://hopzone.eu global reward variables
+	public static boolean HOPZONE_EU_GLOBAL_REWARD;
 	public static int HOPZONE_EU_SERVER_ID;
 	public static String HOPZONE_EU_SERVER_API_KEY;
 	public static long HOPZONE_EU_VOTE_CHECK_DELAY;
 	public static boolean HOPZONE_EU_ANNOUNCE_STATISTICS;
 	public static int HOPZONE_EU_VOTE_STEP;
 	public static Map<Integer, List<Integer[]>> HOPZONE_EU_GLOBAL_REWARDS = new HashMap<>();
-	/* set https://hopzone.eu individual variables */
+	// set https://hopzone.eu individual variables
 	public static boolean HOPZONE_EU_INDIVIDUAL_REWARD;
 	public static Map<Integer, List<Integer[]>> HOPZONE_EU_INDIVIDUAL_REWARDS = new HashMap<>();
 
@@ -210,7 +211,7 @@ public class Configurations
 				HOPZONE_EU_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
-		/* set https://hopzone.eu individual variables */
+		// set https://hopzone.eu individual variables
 		HOPZONE_EU_INDIVIDUAL_REWARD = ep.getProperty("HopZoneEuIndividualReward", false);
 		for (String individual : ep.getProperty("HopZoneEuIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
 		{

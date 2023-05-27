@@ -73,7 +73,7 @@ public class Global
 	 */
 	public Global()
 	{
-		// check if allowed the ITOPZ reward to start
+		// check if allowed the HOPZONE reward to start
 		if (Configurations.HOPZONE_EU_GLOBAL_REWARD)
 		{
 			VDSThreadPool.scheduleAtFixedRate(() -> execute("HOPZONE"), 100, Configurations.HOPZONE_EU_VOTE_CHECK_DELAY * 1000);
@@ -87,7 +87,7 @@ public class Global
 			_log.info(Global.class.getSimpleName() + ": ITOPZ reward started.");
 		}
 		
-		// check if allowed the HOPZONE reward to start
+		// check if allowed the HOPZONENET reward to start
 		if (Configurations.HOPZONE_NET_GLOBAL_REWARD)
 		{
 			VDSThreadPool.scheduleAtFixedRate(() -> execute("HOPZONENET"), 100, Configurations.HOPZONE_NET_VOTE_CHECK_DELAY * 1000);
@@ -227,7 +227,6 @@ public class Global
 			case "HOPZONE":
 				if (Configurations.HOPZONE_EU_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateHopzoneStats(serverVotes);
-				
 				// check for vote step reward
 				if (serverVotes >= storedVotes + Configurations.HOPZONE_EU_VOTE_STEP)
 				{
@@ -252,7 +251,6 @@ public class Global
 			case "HOPZONENET":
 				if (Configurations.HOPZONE_NET_ANNOUNCE_STATISTICS)
 					Gui.getInstance().UpdateHopzonenetStats(serverVotes);
-				
 				// check for vote step reward
 				if (serverVotes >= storedVotes + Configurations.HOPZONE_NET_VOTE_STEP)
 				{
