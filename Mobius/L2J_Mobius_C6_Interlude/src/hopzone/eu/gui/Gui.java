@@ -40,7 +40,7 @@ import java.net.URL;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Mobius C6 Interlude
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -61,14 +61,14 @@ public class Gui extends JFrame
 	private Box box;
 
 	// label
-	private JLabel ITOPZ, HOPZONE, L2TOPGAMESERVER, L2NETWORK, TOPL2JBRASIL, L2VOTES, L2TOPSERVERS;
-
+	private JLabel HOPZONE, ITOPZ, HOPZONENET, L2TOPGAMESERVER, L2NETWORK, TOPL2JBRASIL, L2VOTES, HOTSERVERS;
+	
 	/**
 	 * Constructor load gui
 	 */
 	Gui()
 	{
-		if (Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (Configurations.VDS_CONSOLE_ENABLE)
 		{
 			startGui();
 			addMenuItems();
@@ -97,7 +97,8 @@ public class Gui extends JFrame
 				window.dispose();
 				setVisible(true);
 			}, 7000);
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -115,54 +116,67 @@ public class Gui extends JFrame
 		menuBar.setBackground(Color.black);
 		box = Box.createVerticalBox();
 
-		// set ITOPZ statistics label info
-		ITOPZ = new JLabel("Waiting for itopz statistics info.");
-		ITOPZ.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
-		ITOPZ.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
-
-		// set HOPZONE statistics label info
-		HOPZONE = new JLabel("Waiting for hopzone statistics info.");
-		HOPZONE.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
+		// set HOPZONE.EU statistics label info
+		HOPZONE = new JLabel("Waiting for hopzone.eu statistics info.");
+		HOPZONE.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		HOPZONE.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		HOPZONE.setText("Server Votes: votes HOPZONE.EU.");
+		
+		// set ITOPZ.COM statistics label info
+		ITOPZ = new JLabel("Waiting for itopz.com statistics info.");
+		ITOPZ.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
+		ITOPZ.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		ITOPZ.setText("Server Votes: votes ITOPZ.COM.");
 
+		// set HOPZONE.NET statistics label info
+		HOPZONENET = new JLabel("Waiting for hopzone.net statistics info.");
+		HOPZONENET.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
+		HOPZONENET.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		HOPZONENET.setText("Server Votes: votes HOPZONE.NET.");
+
+		// set L2TOPGAMESERVER statistics label info
 		L2TOPGAMESERVER = new JLabel("Waiting for statistics L2TOPGAMESERVER.");
-		L2TOPGAMESERVER.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
+		L2TOPGAMESERVER.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		L2TOPGAMESERVER.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		L2TOPGAMESERVER.setText("Server Votes: votes L2TOPGAMESERVER.");
 
+		// set L2NETWORK statistics label info
 		L2NETWORK = new JLabel("Waiting for statistics info L2NETWORK.");
-		L2NETWORK.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
+		L2NETWORK.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		L2NETWORK.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		L2NETWORK.setText("Server Votes: L2NETWORK.");
 
+		// set TOPL2JBRASIL statistics label info
 		TOPL2JBRASIL = new JLabel("Waiting for statistics info TOPL2JBRASIL.");
-		TOPL2JBRASIL.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
+		TOPL2JBRASIL.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		TOPL2JBRASIL.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		TOPL2JBRASIL.setText("Server Votes: votes TOPL2JBRASIL.");
 
-		L2TOPSERVERS = new JLabel("Waiting for statistics info L2TOPSERVERS.");
-		L2TOPSERVERS.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
-		L2TOPSERVERS.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
-		L2TOPSERVERS.setText("Server Votes: L2TOPSERVERS.");
+		// set HOTSERVERS statistics label info
+		HOTSERVERS = new JLabel("Waiting for statistics info HOTSERVERS.");
+		HOTSERVERS.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
+		HOTSERVERS.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		HOTSERVERS.setText("Server Votes: HOTSERVERS.");
 
+		// set L2VOTES statistics label info
 		L2VOTES = new JLabel("Waiting for statistics info L2VOTES.");
-		L2VOTES.setBounds(1, 150, Configurations.ITOPZ_CONSOLE_WIDTH, 5);
+		L2VOTES.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		L2VOTES.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		L2VOTES.setText("Server Votes: votes L2VOTES.");
 
 		// Create a JTextArea
 		console = new JTextArea("Server info started.");
-		console.setBounds(200, 250, Configurations.ITOPZ_CONSOLE_WIDTH, 550);
-		console.setFont(new Font(Configurations.ITOPZ_CONSOLE_FONT, Font.BOLD, Configurations.ITOPZ_CONSOLE_SIZE));
+		console.setBounds(200, 250, Configurations.VDS_CONSOLE_WIDTH, 550);
+		console.setFont(new Font(Configurations.VDS_CONSOLE_FONT, Font.BOLD, Configurations.VDS_CONSOLE_SIZE));
 		console.setLineWrap(true); // wrap line
 		console.setWrapStyleWord(true); // wrap line at word boundary
-		console.setBackground(new Color(Configurations.ITOPZ_CONSOLE_COLOR_R, Configurations.ITOPZ_CONSOLE_COLOR_G, Configurations.ITOPZ_CONSOLE_COLOR_B)); // light blue
+		console.setBackground(new Color(Configurations.VDS_CONSOLE_COLOR_R, Configurations.VDS_CONSOLE_COLOR_G, Configurations.VDS_CONSOLE_COLOR_B)); // light blue
 
 		// Wrap the JTextArea inside a JScrollPane
 		JScrollPane ConsolePanel = new JScrollPane(console);
 		ConsolePanel.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		ConsolePanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		ConsolePanel.setSize(Configurations.ITOPZ_CONSOLE_WIDTH, 500);
+		ConsolePanel.setSize(Configurations.VDS_CONSOLE_WIDTH, 500);
 
 		// Setup the content-pane of JFrame in BorderLayout
 		Container cp = this.getContentPane();
@@ -179,7 +193,34 @@ public class Gui extends JFrame
 		// Setup basic window settings
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("VDSystem server console.");
-		setSize(Configurations.ITOPZ_CONSOLE_WIDTH, Configurations.ITOPZ_CONSOLE_HEIGHT);
+		setSize(Configurations.VDS_CONSOLE_WIDTH, Configurations.VDS_CONSOLE_HEIGHT);
+	}
+
+	/**
+	 * update statistics
+	 *
+	 * @param serverVotes       int
+	 */
+	public void UpdateHopzoneStats(int serverVotes)
+	{
+		if (!Configurations.VDS_CONSOLE_ENABLE)
+			return;
+
+		HOPZONE.setText("HOPZONE.EU Server Votes: " + serverVotes + " votes.");
+		if (serverVotes < 0)
+		{
+			HOPZONE.setForeground(Color.RED);
+			HOPZONE.setToolTipText("<html>Check for errors</html>");
+		}
+		else
+		{
+			HOPZONE.setForeground(Color.GREEN);
+			HOPZONE.setToolTipText("<html>Live mode</html>");
+		}
+		if (Configurations.HOPZONE_EU_VOTE_CHECK_DELAY > 60)
+			HOPZONE.setToolTipText("<html>Statistics up date every " + Configurations.HOPZONE_EU_VOTE_CHECK_DELAY / 60 + " minutes</html>");
+		else
+			HOPZONE.setToolTipText("<html>Statistics up date every " + Configurations.HOPZONE_EU_VOTE_CHECK_DELAY + " seconds</html>");
 	}
 
 	/**
@@ -192,7 +233,7 @@ public class Gui extends JFrame
 	 */
 	public void UpdateItopzStats(int serverVotes, int serverRank, int serverNextRank, int serverNeededVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
 		ITOPZ.setText("ITOPZ Server Votes: " + serverVotes + " Rank:" + serverRank + " Next Rank(" + serverNextRank + ") need: " + serverNeededVotes + "votes.");
@@ -230,20 +271,20 @@ public class Gui extends JFrame
 	 *
 	 * @param serverVotes int
 	 */
-	public void UpdateHopzoneStats(int serverVotes)
+	public void UpdateHopzonenetStats(int serverVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
-		HOPZONE.setText("HOPZONE Server Votes: " + serverVotes + "votes.");
+		HOPZONENET.setText("HOPZONENET Server Votes: " + serverVotes + " votes.");
 		if (serverVotes < 0)
-			HOPZONE.setForeground(Color.RED);
+			HOPZONENET.setForeground(Color.RED);
 		else
-			HOPZONE.setForeground(Color.GREEN);
-		if (Configurations.HOPZONE_VOTE_CHECK_DELAY > 60)
-			HOPZONE.setToolTipText("<html>Statistics up date every " + Configurations.HOPZONE_VOTE_CHECK_DELAY / 60 + " minutes</html>");
+			HOPZONENET.setForeground(Color.GREEN);
+		if (Configurations.HOPZONE_NET_VOTE_CHECK_DELAY > 60)
+			HOPZONENET.setToolTipText("<html>Statistics up date every " + Configurations.HOPZONE_NET_VOTE_CHECK_DELAY / 60 + " minutes</html>");
 		else
-			HOPZONE.setToolTipText("<html>Statistics up date every " + Configurations.HOPZONE_VOTE_CHECK_DELAY + " seconds</html>");
+			HOPZONENET.setToolTipText("<html>Statistics up date every " + Configurations.HOPZONE_NET_VOTE_CHECK_DELAY + " seconds</html>");
 	}
 
 	/**
@@ -253,7 +294,7 @@ public class Gui extends JFrame
 	 */
 	public void UpdateTopGameServerStats(int serverVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
 		L2TOPGAMESERVER.setText("L2TOPGAMESERVER Server Votes: " + serverVotes + "votes.");
@@ -274,7 +315,7 @@ public class Gui extends JFrame
 	 */
 	public void UpdateNetworkStats(int serverVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
 		L2NETWORK.setText("L2Network Server Votes: " + serverVotes + "votes.");
@@ -295,7 +336,7 @@ public class Gui extends JFrame
 	 */
 	public void UpdateBrasilStats(int serverVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
 		TOPL2JBRASIL.setText("L2JBrasil Server Votes: " + serverVotes + "votes.");
@@ -314,20 +355,20 @@ public class Gui extends JFrame
 	 *
 	 * @param serverVotes int
 	 */
-	public void UpdateTopServersStats(int serverVotes)
+	public void UpdateHotServersStats(int serverVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
-		L2TOPSERVERS.setText("L2TopServers Server Votes: " + serverVotes + "votes.");
+		HOTSERVERS.setText("HotServers Server Votes: " + serverVotes + "votes.");
 		if (serverVotes < 0)
-			L2TOPSERVERS.setForeground(Color.RED);
+			HOTSERVERS.setForeground(Color.RED);
 		else
-			L2TOPSERVERS.setForeground(Color.GREEN);
-		if (Configurations.L2TOPSERVERS_VOTE_CHECK_DELAY > 60)
-			L2TOPSERVERS.setToolTipText("<html>Statistics up date every " + Configurations.L2TOPSERVERS_VOTE_CHECK_DELAY / 60 + " minutes</html>");
+			HOTSERVERS.setForeground(Color.GREEN);
+		if (Configurations.HOTSERVERS_VOTE_CHECK_DELAY > 60)
+			HOTSERVERS.setToolTipText("<html>Statistics up date every " + Configurations.HOTSERVERS_VOTE_CHECK_DELAY / 60 + " minutes</html>");
 		else
-			L2TOPSERVERS.setToolTipText("<html>Statistics up date every " + Configurations.L2TOPSERVERS_VOTE_CHECK_DELAY + " seconds</html>");
+			HOTSERVERS.setToolTipText("<html>Statistics up date every " + Configurations.HOTSERVERS_VOTE_CHECK_DELAY + " seconds</html>");
 	}
 
 	/**
@@ -337,7 +378,7 @@ public class Gui extends JFrame
 	 */
 	public void UpdateVotesStats(int serverVotes)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 
 		L2VOTES.setText("L2Votes Server Votes: " + serverVotes + "votes.");
@@ -366,17 +407,23 @@ public class Gui extends JFrame
 		debug.setToolTipText("<html>Show debug messages on console</html>");
 		menuServer.add(debug);
 
+		// run Hopzone global reward
+		JMenuItem run_hopzone_global_reward = new JMenuItem("Run Hopzone.eu Global");
+		run_hopzone_global_reward.addActionListener(al -> Global.getInstance().execute("HOPZONE"));
+		run_hopzone_global_reward.setToolTipText("<html>Run global reward</html>");
+		menuServer.add(run_hopzone_global_reward);
+
 		// run itopz global reward
 		JMenuItem run_itopz_global_reward = new JMenuItem("Run iTopZ Global");
 		run_itopz_global_reward.addActionListener(al -> Global.getInstance().execute("ITOPZ"));
 		run_itopz_global_reward.setToolTipText("<html>Run global reward</html>");
 		menuServer.add(run_itopz_global_reward);
 
-		// run Hopzone global reward
-		JMenuItem run_hopzone_global_reward = new JMenuItem("Run Hopzone Global");
-		run_hopzone_global_reward.addActionListener(al -> Global.getInstance().execute("HOPZONE"));
-		run_hopzone_global_reward.setToolTipText("<html>Run global reward</html>");
-		menuServer.add(run_hopzone_global_reward);
+		// run Hopzonenet global reward
+		JMenuItem run_hopzonenet_global_reward = new JMenuItem("Run Hopzone.net Global");
+		run_hopzonenet_global_reward.addActionListener(al -> Global.getInstance().execute("HOPZONENET"));
+		run_hopzonenet_global_reward.setToolTipText("<html>Run global reward</html>");
+		menuServer.add(run_hopzonenet_global_reward);
 
 		// run L2TopGameServer global reward
 		JMenuItem run_l2topgameserver_global_reward = new JMenuItem("Run L2TopGameServer Global");
@@ -402,11 +449,11 @@ public class Gui extends JFrame
 		run_l2votes_global_reward.setToolTipText("<html>Run global reward</html>");
 		menuServer.add(run_l2votes_global_reward);
 
-		// run L2TopServers global reward
-		JMenuItem run_l2topservers_global_reward = new JMenuItem("Run L2TopServers Global");
-		run_l2topservers_global_reward.addActionListener(al -> Global.getInstance().execute("L2TOPSERVERS"));
-		run_l2topservers_global_reward.setToolTipText("<html>Run global reward</html>");
-		menuServer.add(run_l2topservers_global_reward);
+		// run HotServers global reward
+		JMenuItem run_hotservers_global_reward = new JMenuItem("Run HotServers Global");
+		run_hotservers_global_reward.addActionListener(al -> Global.getInstance().execute("HOTSERVERS"));
+		run_hotservers_global_reward.setToolTipText("<html>Run global reward</html>");
+		menuServer.add(run_hotservers_global_reward);
 
 		// server info
 		JMenuItem server_info = new JMenuItem("Server info");
@@ -459,6 +506,24 @@ public class Gui extends JFrame
 		denart_designs.addActionListener(al -> Utilities.openUrl(Url.DENART_DESIGNS.toString()));
 		denart_designs.setToolTipText("<html>Visit Denart Designs</html>");
 		menuAbout.add(denart_designs);
+		
+		// shop donate denart designs
+		JMenuItem denart_designs_donate = new JMenuItem("Donate Panel v4");
+		denart_designs_donate.addActionListener(al -> Utilities.openUrl(Url.DENART_DESIGNS_DONATE_PANEL.toString()));
+		denart_designs_donate.setToolTipText("<html>Visit Denart Designs</html>");
+		menuAbout.add(denart_designs_donate);
+		
+		// shop vote denart designs
+		JMenuItem denart_designs_vote = new JMenuItem("Vote Panel");
+		denart_designs_vote.addActionListener(al -> Utilities.openUrl(Url.DENART_DESIGNS_VOTE_PANEL.toString()));
+		denart_designs_vote.setToolTipText("<html>Visit Denart Designs</html>");
+		menuAbout.add(denart_designs_vote);
+		
+		// shop referral denart designs
+		JMenuItem denart_designs_referral = new JMenuItem("Referral Panel");
+		denart_designs_referral.addActionListener(al -> Utilities.openUrl(Url.DENART_DESIGNS_REFERRAL_PANEL.toString()));
+		denart_designs_referral.setToolTipText("<html>Visit Denart Designs</html>");
+		menuAbout.add(denart_designs_referral);
 	}
 
 	/**
@@ -466,10 +531,12 @@ public class Gui extends JFrame
 	 */
 	public void box()
 	{
-		// ITOPZ
-		box.add(ITOPZ);
 		// HOPZONE
 		box.add(HOPZONE);
+		// ITOPZ
+		box.add(ITOPZ);
+		// HOPZONENET
+		box.add(HOPZONENET);
 		// L2TOPGAMESERVER
 		box.add(L2TOPGAMESERVER);
 		// L2NETWORK
@@ -478,8 +545,8 @@ public class Gui extends JFrame
 		box.add(TOPL2JBRASIL);
 		// L2VOTES
 		box.add(L2VOTES);
-		// L2TOPSERVERS
-		box.add(L2TOPSERVERS);
+		// HOTSERVERS
+		box.add(HOTSERVERS);
 	}
 
 	/**
@@ -489,7 +556,7 @@ public class Gui extends JFrame
 	 */
 	public void ConsoleWrite(String message)
 	{
-		if (!Configurations.ITOPZ_CONSOLE_ENABLE)
+		if (!Configurations.VDS_CONSOLE_ENABLE)
 			return;
 		// console append message
 		console.append("\n" + message);
