@@ -110,6 +110,6 @@ public enum Url
 	 */
 	public static Url from(String TOPSITE)
 	{
-		return Arrays.stream(_urls).filter(s -> s.name().equalsIgnoreCase(TOPSITE)).findFirst().orElse(ITOPZ_URL);
+		return Arrays.stream(_urls).filter(s -> s.name().equalsIgnoreCase(TOPSITE)).findFirst().orElse(HOPZONE_URL);
 	}
 }

@@ -106,7 +106,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 */
 	private static class FloodProtectorHolder
 	{
-		public static final Duration EXTENSION = Duration.ofSeconds(10);
+		public static final Duration EXTENSION = Duration.ofSeconds(60);
 
 		private final VoteSite _site;
 
@@ -206,7 +206,6 @@ public class VoteCMD implements IVoicedCommandHandler
 		// check player eligibility
 		if (!playerChecksFail(player, TOPSITE))
 		{
-			
 			if (vote_id > 0)
 			{
 				String VoteURL = "https://hopzone.eu/vote/" + Configurations.HOPZONE_EU_SERVER_ID + "/" + vote_id + "";
@@ -285,7 +284,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	private boolean playerChecksFail(final Player player, final String TOPSITE)
 	{
 		// check for private network (website will not accept it)
-		if (!Configurations.DEBUG && Utilities.localIp(player.getIP()))
+		if (!Configurations.DEBUG && Utilities.localIp(player.getIP()) && !TOPSITE.equals("HOPZONE"))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return true;
