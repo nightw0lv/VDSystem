@@ -22,6 +22,7 @@
 package hopzone.eu.model.base;
 
 import hopzone.eu.vote.VDSystem;
+import hopzone.eu.gui.Gui;
 import hopzone.eu.Configurations;
 import hopzone.eu.util.Json;
 import hopzone.eu.util.Logs;
@@ -46,7 +47,7 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.5
+ * Script version: 1.6
  * Pack Support: Mobius CT 2.6 HighFive
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
@@ -122,16 +123,19 @@ public abstract class IResponse
 		{
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + sex.getMessage(), sex);
+			Gui.getInstance().ConsoleWrite("Error: " + sex.getMessage());
 		}
 		catch (final FileNotFoundException fnfe)
 		{
 			if (Configurations.DEBUG)
 				_log.error("Socket:" + fnfe.getMessage(), fnfe);
+			Gui.getInstance().ConsoleWrite("Error: " + fnfe.getMessage());
 		}
 		catch (final Exception ex)
 		{
 			if (Configurations.DEBUG)
 				_log.error("Exception:" + ex.getMessage(), ex);
+			Gui.getInstance().ConsoleWrite("Error: " + ex.getMessage());
 		}
 		finally
 		{
