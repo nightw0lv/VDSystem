@@ -103,7 +103,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	 */
 	private static class FloodProtectorHolder
 	{
-		public static final Duration EXTENSION = Duration.ofSeconds(10);
+		public static final Duration EXTENSION = Duration.ofSeconds(60);
 
 		private final VoteSite _site;
 
@@ -274,7 +274,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	private boolean playerChecksFail(final L2PcInstance player, final String TOPSITE)
 	{
 		// check for private network (website will not accept it)
-		if (!Configurations.DEBUG && Utilities.localIp(player.getClient().getConnection().getInetAddress()))
+		if (!Configurations.DEBUG && Utilities.localIp(player.getClient().getConnection().getInetAddress()) && !TOPSITE.equals("HOPZONE"))
 		{
 			sendMsg(player, "Private networks are not allowed.");
 			return true;
@@ -310,9 +310,11 @@ public class VoteCMD implements IVoicedCommandHandler
 
 	/**
 	 * Execute individual response and reward player on success
+	 * response url depends on a vote id is given or not
 	 *
 	 * @param player  object
 	 * @param TOPSITE string
+	 * @param vote_id int
 	 */
 	private void Execute(final L2PcInstance player, final String TOPSITE, int vote_id)
 	{
