@@ -220,7 +220,7 @@ public class Json
 			if (TOPSITE.equals("HOPZONE"))
 			{
 				split = s.split(":");
-				//if (Configurations.DEBUG)
+				if (Configurations.DEBUG)
 					_log.info(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
 				// vote id check
 				if (split[0].contains("status"))
