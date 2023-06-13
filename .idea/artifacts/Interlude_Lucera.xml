@@ -3,9 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Interlude_Lucera</output-path>
     <root id="archive" name="VDSystem.ext.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/Interlude/lucera/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/Interlude/Lucera/META-INF/MANIFEST.MF" />
       </element>
-      <element id="module-output" name="lucera" />
+      <element id="module-output" name="Lucera" />
     </root>
   </artifact>
 </component>

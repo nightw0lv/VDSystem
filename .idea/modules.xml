@@ -43,6 +43,7 @@
       <module fileurl="file://$PROJECT_DIR$/Mobius/L2J_Mobius_Essence_7.0_Assassin/L2J_Mobius_Essence_7.0_Assassin.iml" filepath="$PROJECT_DIR$/Mobius/L2J_Mobius_Essence_7.0_Assassin/L2J_Mobius_Essence_7.0_Assassin.iml" />
       <module fileurl="file://$PROJECT_DIR$/Scions of Destiny/Lisvus/Lisvus.iml" filepath="$PROJECT_DIR$/Scions of Destiny/Lisvus/Lisvus.iml" />
       <module fileurl="file://$PROJECT_DIR$/Scions of Destiny/Lisvus_JDK17/Lisvus_JDK17.iml" filepath="$PROJECT_DIR$/Scions of Destiny/Lisvus_JDK17/Lisvus_JDK17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interlude/Lucera/Lucera.iml" filepath="$PROJECT_DIR$/Interlude/Lucera/Lucera.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interlude/Lucera_NO_GUI/Lucera_NO_GUI.iml" filepath="$PROJECT_DIR$/Interlude/Lucera_NO_GUI/Lucera_NO_GUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/HighFive/Mythras/Mythras.iml" filepath="$PROJECT_DIR$/HighFive/Mythras/Mythras.iml" />
       <module fileurl="file://$PROJECT_DIR$/HighFive/Remorse/Remorse.iml" filepath="$PROJECT_DIR$/HighFive/Remorse/Remorse.iml" />
@@ -52,7 +53,6 @@
       <module fileurl="file://$PROJECT_DIR$/VDSystem.iml" filepath="$PROJECT_DIR$/VDSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interlude/aCis/aCis.iml" filepath="$PROJECT_DIR$/Interlude/aCis/aCis.iml" />
       <module fileurl="file://$PROJECT_DIR$/HighFive/aVa/aVa.iml" filepath="$PROJECT_DIR$/HighFive/aVa/aVa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Interlude/lucera/lucera.iml" filepath="$PROJECT_DIR$/Interlude/lucera/lucera.iml" />
     </modules>
   </component>
 </project>
