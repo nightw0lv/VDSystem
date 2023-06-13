@@ -65,10 +65,10 @@
       - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Scions%20of%20Destiny/Lisvus_JDK17/Patch.diff)
   - **Interlude**
     - [x] LUCERA
-      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/lucera/)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Lucera/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lucera)
     - [x] LUCERA NO GUI
-      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/lucera_NO_GUI/)
+      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Lucera_NO_GUI/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lucera_NO_GUI)
     - [x] ACIS 401
       - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/aCis/)
