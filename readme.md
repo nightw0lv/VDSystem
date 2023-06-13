@@ -69,7 +69,7 @@
       - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lucera)
     - [x] LUCERA NO GUI
       - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Lucera_NO_GUI/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Lucera_NO_GUI)
+      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/LuceraNoGui)
     - [x] ACIS 401
       - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/aCis/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/aCis)
