@@ -6,7 +6,7 @@ Implementation of vote global and individual system with item delivery manager.
 - Individual vote reward is when a single player (individual) vote for the server on one or more topsites and for each vote as a "thank you" he will receive configured item/items reward.
 
 **Requirement**
-- aCis 394
+- aCis 401
 - Voiced Command Handler (provided)
 - Patch installation (provided)
 - JDK 11
