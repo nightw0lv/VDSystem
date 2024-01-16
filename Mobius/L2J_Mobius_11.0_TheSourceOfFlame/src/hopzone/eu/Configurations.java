@@ -166,10 +166,10 @@ public class Configurations
 	public static long L2RANKZONE_VOTE_CHECK_DELAY;
 	public static boolean L2RANKZONE_ANNOUNCE_STATISTICS;
 	public static int L2RANKZONE_VOTE_STEP;
-	public static Map<Integer, List<Integer[]>> L2RANKZONE_GLOBAL_REWARDS = new HashMap<>();
+	public static Map<Integer, List<Long[]>> L2RANKZONE_GLOBAL_REWARDS = new HashMap<>();
 	// set l2rankzone individual variables
 	public static boolean L2RANKZONE_INDIVIDUAL_REWARD;
-	public static Map<Integer, List<Integer[]>> L2RANKZONE_INDIVIDUAL_REWARDS = new HashMap<>();
+	public static Map<Integer, List<Long[]>> L2RANKZONE_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	/**
 	 * load config variables
@@ -573,13 +573,13 @@ public class Configurations
 			{
 				String[] parts = split.split(",");
 				// Start Join the map
-				List<Integer[]> temp = new ArrayList<>();
+				List<Long[]> temp = new ArrayList<>();
 				// Min-Max-Chance
-				temp.add(new Integer[]
+				temp.add(new Long[]
 				{
-					 Integer.parseInt(parts[1].split("-")[0]),
-					 Integer.parseInt(parts[1].split("-")[1]),
-					 Integer.parseInt(parts[1].split("-")[2]),
+					Long.parseLong(parts[1].split("-")[0]),
+					Long.parseLong(parts[1].split("-")[1]),
+					Long.parseLong(parts[1].split("-")[2]),
 				});
 				L2RANKZONE_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
@@ -593,13 +593,13 @@ public class Configurations
 			{
 				String[] parts = split.split(",");
 				// Start Join the map
-				List<Integer[]> temp = new ArrayList<>();
+				List<Long[]> temp = new ArrayList<>();
 				// Min-Max-Chance
-				temp.add(new Integer[]
+				temp.add(new Long[]
 				{
-					 Integer.parseInt(parts[1].split("-")[0]),
-					 Integer.parseInt(parts[1].split("-")[1]),
-					 Integer.parseInt(parts[1].split("-")[2]),
+					 Long.parseLong(parts[1].split("-")[0]),
+					 Long.parseLong(parts[1].split("-")[1]),
+					 Long.parseLong(parts[1].split("-")[2]),
 				});
 				L2RANKZONE_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}

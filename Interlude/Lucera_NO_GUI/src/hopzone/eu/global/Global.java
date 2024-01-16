@@ -265,8 +265,6 @@ public class Global
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2VOTES_VOTE_STEP) + " votes!");
 				break;
 			case "L2RANKZONE":
-				if (Configurations.L2RANKZONE_ANNOUNCE_STATISTICS)
-					Gui.getInstance().UpdateVotesStats(serverVotes);
 				// check for vote step reward
 				if (serverVotes >= storedVotes + Configurations.L2RANKZONE_VOTE_STEP)
 				{
