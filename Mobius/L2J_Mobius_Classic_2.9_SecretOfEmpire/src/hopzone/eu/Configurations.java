@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,14 +38,14 @@ import java.util.*;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Mobius Classic 2.9 SecretOfEmpire
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Configurations
 {
@@ -159,6 +159,17 @@ public class Configurations
 	// set hotservers individual variables
 	public static boolean L2VOTES_INDIVIDUAL_REWARD;
 	public static Map<Integer, List<Long[]>> L2VOTES_INDIVIDUAL_REWARDS = new HashMap<>();
+	
+	// set l2rankzone global reward variables
+	public static boolean L2RANKZONE_GLOBAL_REWARD;
+	public static String L2RANKZONE_API_KEY;
+	public static long L2RANKZONE_VOTE_CHECK_DELAY;
+	public static boolean L2RANKZONE_ANNOUNCE_STATISTICS;
+	public static int L2RANKZONE_VOTE_STEP;
+	public static Map<Integer, List<Integer[]>> L2RANKZONE_GLOBAL_REWARDS = new HashMap<>();
+	// set l2rankzone individual variables
+	public static boolean L2RANKZONE_INDIVIDUAL_REWARD;
+	public static Map<Integer, List<Integer[]>> L2RANKZONE_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	/**
 	 * load config variables
@@ -546,6 +557,51 @@ public class Configurations
 				Long.parseLong(parts[1].split("-")[2]),
 				});
 				L2VOTES_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+			}
+		}
+		
+		// set l2rankzone global reward variables
+		L2RANKZONE_GLOBAL_REWARD = Boolean.parseBoolean(ep.getProperty("L2RankZoneGlobalVoteReward", "false"));
+		L2RANKZONE_API_KEY = ep.getProperty("L2RankZoneApiKey", "Hi");
+		L2RANKZONE_ANNOUNCE_STATISTICS = Boolean.parseBoolean(ep.getProperty("L2RankZoneAnnounceStatistics", "false"));
+		L2RANKZONE_VOTE_CHECK_DELAY = Integer.parseInt(ep.getProperty("L2RankZoneCheckDelay", "10"));
+		L2RANKZONE_VOTE_STEP = Integer.parseInt(ep.getProperty("L2RankZoneVoteStep", "20"));
+		for (String global : ep.getProperty("L2RankZoneGlobalRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
+		{
+			String[] global_split = global.split(";");
+			for (String split : global_split)
+			{
+				String[] parts = split.split(",");
+				// Start Join the map
+				List<Integer[]> temp = new ArrayList<>();
+				// Min-Max-Chance
+				temp.add(new Integer[]
+				{
+					 Integer.parseInt(parts[1].split("-")[0]),
+					 Integer.parseInt(parts[1].split("-")[1]),
+					 Integer.parseInt(parts[1].split("-")[2]),
+				});
+				L2RANKZONE_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+			}
+		}
+		// set l2votes individual variables
+		L2RANKZONE_INDIVIDUAL_REWARD = Boolean.parseBoolean(ep.getProperty("L2RankZoneIndividualReward", "false"));
+		for (String individual : ep.getProperty("L2RankZoneIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
+		{
+			String[] individual_split = individual.split(";");
+			for (String split : individual_split)
+			{
+				String[] parts = split.split(",");
+				// Start Join the map
+				List<Integer[]> temp = new ArrayList<>();
+				// Min-Max-Chance
+				temp.add(new Integer[]
+				{
+					 Integer.parseInt(parts[1].split("-")[0]),
+					 Integer.parseInt(parts[1].split("-")[1]),
+					 Integer.parseInt(parts[1].split("-")[2]),
+				});
+				L2RANKZONE_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
 

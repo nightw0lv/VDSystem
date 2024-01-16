@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,14 +36,14 @@ import hopzone.eu.util.Utilities;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Mobius 09.2 ReturnOfTheQueenAnt
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class IndividualResponse extends IResponse
 {
@@ -113,6 +113,10 @@ public class IndividualResponse extends IResponse
 				break;
 			case "L2NETWORK":
 			case "L2VOTES":
+				break;
+			case "L2RANKZONE":
+				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Athens");
+				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Athens");
 				break;
 			default:
 				_hasVoted = false;

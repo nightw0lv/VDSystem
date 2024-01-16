@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,14 +40,14 @@ import java.net.URL;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Mobius Classic 2.9.5 Saviors
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Gui extends JFrame
 {
@@ -61,7 +61,7 @@ public class Gui extends JFrame
 	private Box box;
 
 	// label
-	private JLabel HOPZONE, ITOPZ, HOPZONENET, L2TOPGAMESERVER, L2NETWORK, TOPL2JBRASIL, L2VOTES, HOTSERVERS;
+	private JLabel HOPZONE, ITOPZ, HOPZONENET, L2TOPGAMESERVER, L2NETWORK, TOPL2JBRASIL, L2VOTES, HOTSERVERS, L2RANKZONE;
 	
 	/**
 	 * Constructor load gui
@@ -163,6 +163,12 @@ public class Gui extends JFrame
 		L2VOTES.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		L2VOTES.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		L2VOTES.setText("Server Votes: votes L2VOTES.");
+		
+		// set L2RANKZONE statistics label info
+		L2RANKZONE = new JLabel("Waiting for statistics info L2RANKZONE.");
+		L2RANKZONE.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
+		L2RANKZONE.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		L2RANKZONE.setText("Server Votes: votes L2RANKZONE.");
 
 		// Create a JTextArea
 		console = new JTextArea("Server info started.");
@@ -391,7 +397,28 @@ public class Gui extends JFrame
 		else
 			L2VOTES.setToolTipText("<html>Statistics up date every " + Configurations.L2VOTES_VOTE_CHECK_DELAY + " seconds</html>");
 	}
-
+	
+	/**
+	 * update statistics
+	 *
+	 * @param serverVotes int
+	 */
+	public void UpdateL2RankZoneStats(int serverVotes)
+	{
+		if (!Configurations.VDS_CONSOLE_ENABLE)
+			return;
+		
+		L2RANKZONE.setText("L2RankZone Server Votes: " + serverVotes + "votes.");
+		if (serverVotes < 0)
+			L2RANKZONE.setForeground(Color.RED);
+		else
+			L2RANKZONE.setForeground(Color.GREEN);
+		if (Configurations.L2RANKZONE_VOTE_CHECK_DELAY > 60)
+			L2RANKZONE.setToolTipText("<html>Statistics up date every " + Configurations.L2RANKZONE_VOTE_CHECK_DELAY / 60 + " minutes</html>");
+		else
+			L2RANKZONE.setToolTipText("<html>Statistics up date every " + Configurations.L2RANKZONE_VOTE_CHECK_DELAY + " seconds</html>");
+	}
+	
 	/**
 	 * Create Menu items
 	 */
@@ -454,6 +481,12 @@ public class Gui extends JFrame
 		run_hotservers_global_reward.addActionListener(al -> Global.getInstance().execute("HOTSERVERS"));
 		run_hotservers_global_reward.setToolTipText("<html>Run global reward</html>");
 		menuServer.add(run_hotservers_global_reward);
+		
+		// run L2RankZone global reward
+		JMenuItem run_l2rankzone_global_reward = new JMenuItem("Run L2RankZone Global");
+		run_l2rankzone_global_reward.addActionListener(al -> Global.getInstance().execute("L2RANKZONE"));
+		run_l2rankzone_global_reward.setToolTipText("<html>Run global reward</html>");
+		menuServer.add(run_l2rankzone_global_reward);
 
 		// server info
 		JMenuItem server_info = new JMenuItem("Server info");
@@ -547,6 +580,8 @@ public class Gui extends JFrame
 		box.add(L2VOTES);
 		// HOTSERVERS
 		box.add(HOTSERVERS);
+		// L2RANKZONE
+		box.add(L2RANKZONE);
 	}
 
 	/**

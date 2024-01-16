@@ -80,6 +80,10 @@ Implementation of vote global and individual system with item delivery manager.
 
 **Chancelog**
 
+- Version 1.7
+  - Addition of L2Ranking.com Topsite
+  - Dropping support for JDK 1.7 (removed OLD frozen pack)
+
 - Version 1.6
   - Refactor Config for item delivery manager
   - Update SQL enum in vds_* tables for new topsites

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,14 +37,14 @@ import java.util.Map;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Mobius Classic 2.9 SecretOfEmpire
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Json
 {
@@ -187,6 +187,15 @@ public class Json
 				if (Configurations.DEBUG)
 					_log.info(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
 				if (split[0].contains("server_votes"))
+					data.putIfAbsent(TOPSITE.toLowerCase() + "_votes", split[1].trim());
+			}
+			
+			if (TOPSITE.equals("L2RANKZONE"))
+			{
+				split = s.split(":");
+				if (Configurations.DEBUG)
+					_log.info(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
+				if (split[0].contains("currentVotes"))
 					data.putIfAbsent(TOPSITE.toLowerCase() + "_votes", split[1].trim());
 			}
 		}
@@ -332,6 +341,19 @@ public class Json
 				if (split[0].contains("vote_time") && split.length >= 3)
 					data.putIfAbsent(TOPSITE.toLowerCase() + "_vote_time", split[1].trim() + ":" + split[2].trim() + ":" + split[3].trim());
 				if (split[0].contains("server_time") && split.length >= 3)
+					data.putIfAbsent(TOPSITE.toLowerCase() + "_server_time", split[1].trim() + ":" + split[2].trim() + ":" + split[3].trim());
+			}
+			
+			if (TOPSITE.equals("L2RANKZONE"))
+			{
+				split = s.split(":");
+				if (Configurations.DEBUG)
+					_log.info(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
+				if (split[0].contains("voted"))
+					data.putIfAbsent(TOPSITE.toLowerCase() + "_voted", split[1].trim());
+				if (split[0].contains("voteTime") && split.length >= 3)
+					data.putIfAbsent(TOPSITE.toLowerCase() + "_vote_time", split[1].trim() + ":" + split[2].trim() + ":" + split[3].trim());
+				if (split[0].contains("serverTime") && split.length >= 3)
 					data.putIfAbsent(TOPSITE.toLowerCase() + "_server_time", split[1].trim() + ":" + split[2].trim() + ":" + split[3].trim());
 			}
 		}

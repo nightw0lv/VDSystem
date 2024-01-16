@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -46,14 +46,14 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Mobius Classic 1.0
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Global
 {
@@ -127,6 +127,13 @@ public class Global
 			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2VOTES"), 100, Configurations.L2VOTES_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2VOTES reward started.");
 		}
+		
+		// check if allowed the L2RANKZONE reward to start
+		if (Configurations.L2RANKZONE_GLOBAL_REWARD)
+		{
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2RANKZONE"), 100, Configurations.L2RANKZONE_VOTE_CHECK_DELAY * 1000);
+			_log.info(Global.class.getSimpleName() + ": L2RANKZONE reward started.");
+		}
 	}
 
 	/**
@@ -186,6 +193,10 @@ public class Global
 				Gui.getInstance().UpdateHotServersStats(serverVotes);
 			}
 			case "L2VOTES" -> {
+				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
+				Gui.getInstance().UpdateVotesStats(serverVotes);
+			}
+			case "L2RANKZONE" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
 				Gui.getInstance().UpdateVotesStats(serverVotes);
 			}
@@ -317,6 +328,18 @@ public class Global
 				}
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2VOTES_VOTE_STEP) + " votes!");
+			}
+			case "L2RANKZONE" -> {
+				if (Configurations.L2RANKZONE_ANNOUNCE_STATISTICS)
+					Gui.getInstance().UpdateVotesStats(serverVotes);
+				// check for vote step reward
+				if (serverVotes >= storedVotes + Configurations.L2RANKZONE_VOTE_STEP)
+				{
+					// reward all online players
+					reward(TOPSITE);
+				}
+				// announce next reward
+				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2RANKZONE_VOTE_STEP) + " votes!");
 			}
 		}
 	}

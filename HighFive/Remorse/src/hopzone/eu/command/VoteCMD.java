@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -57,14 +57,14 @@ import java.util.Objects;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Remorse (l2-scripts) classic 196 pack
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class VoteCMD implements IVoicedCommandHandler
 {
@@ -86,6 +86,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		L2JBRASIL,
 		HOTSERVERS,
 		L2VOTES,
+		L2RANKZONE,
 	}
 
 	// flood protector list
@@ -152,7 +153,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes"
+		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes", "l2rankzone"
 	};
 
 	@Override
@@ -177,6 +178,8 @@ public class VoteCMD implements IVoicedCommandHandler
 		if (TOPSITE.equals("HOTSERVERS") && !Configurations.HOTSERVERS_INDIVIDUAL_REWARD)
 			return false;
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("L2RANKZONE") && !Configurations.L2RANKZONE_INDIVIDUAL_REWARD)
 			return false;
 
 		// vote info
@@ -260,6 +263,8 @@ public class VoteCMD implements IVoicedCommandHandler
 			sb.append("<tr><td align=right>HOTSERVERS:</td><td width=33%>.hotservers</td></tr>");
 		if (Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			sb.append("<tr><td align=right>L2VOTES:</td><td width=33%>.l2votes</td></tr>");
+		if (Configurations.L2RANKZONE_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>L2RANKZONE:</td><td width=33%>.l2rankzone</td></tr>");
 		sb.append("</table>");
 		sb.append("<img src=\"L2UI.SquareWhite\" width=300 height=1>");
 		sb.append("<img src=\"Sek.cbui371\" width=\"300\" height=\"1\">");

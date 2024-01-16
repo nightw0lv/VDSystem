@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,14 +37,14 @@ import java.util.Set;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Mobius Essence 6.3 Crusader
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public enum Rewards
 {
@@ -63,7 +63,9 @@ public enum Rewards
 	HOTSERVERS_INDIVIDUAL_REWARDS(Configurations.HOTSERVERS_INDIVIDUAL_REWARDS),
 	HOTSERVERS_GLOBAL_REWARDS(Configurations.HOTSERVERS_GLOBAL_REWARDS),
 	L2VOTES_INDIVIDUAL_REWARDS(Configurations.L2VOTES_INDIVIDUAL_REWARDS),
-	L2VOTES_GLOBAL_REWARDS(Configurations.L2VOTES_GLOBAL_REWARDS);
+	L2VOTES_GLOBAL_REWARDS(Configurations.L2VOTES_GLOBAL_REWARDS),
+	L2RANKZONE_INDIVIDUAL_REWARDS(Configurations.L2RANKZONE_INDIVIDUAL_REWARDS),
+	L2RANKZONE_GLOBAL_REWARDS(Configurations.L2RANKZONE_GLOBAL_REWARDS);
 
 	private final Map<Integer, List<Long[]>> _list;
 	private static final Rewards[] _rewards = values();

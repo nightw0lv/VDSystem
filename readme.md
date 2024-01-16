@@ -12,7 +12,7 @@
 **VDSystem**
 - **Source requirements**
   - Intellij
-  - JDK 7, JDK 8, JDK 11, JDK 14, JDK 15, JDK 17 installed
+  - JDK 8, JDK 11, JDK 14, JDK 15, JDK 17, JDK 21 installed
 - **Codes Installed**
    - [x] Auto Donation Reward
       - Free: Hosted [https://itopz.com](https://itopz.com/)
@@ -33,6 +33,8 @@
    - [x] L2JBrasil Reward Individual (Player command)
    - [x] L2Votes Reward Global (Automatic)
    - [x] L2Votes Reward Individual (Player command)
+   - [x] L2RANKZONE Reward Global (Automatic)
+   - [x] L2RANKZONE Reward Individual (Player command)
 - **Supported vote sites**
    - [x] HOPZONE Eu (NEW)
       - Website [https://hopzone.eu/](https://hopzone.eu/)
@@ -50,6 +52,8 @@
       - Website [https://top.l2jbrasil.com/](https://top.l2jbrasil.com/)
    - [x] L2VOTES
       - Website [https://l2votes.com/](https://l2votes.com/)
+   - [x] L2RANKZONE
+      - Website [https://l2rankzone.com/](https://l2rankzone.com/)
   - Will not be added to list
     - [x] ~~L2TOPCO~~
     - [x] ~~TOPZONE~~
@@ -78,10 +82,10 @@
       - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Frozen/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Frozen)
       - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Interlude/Frozen/Patch.diff)
-    - [x] FROZEN 1132 JDK7
-      - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Frozen_JDK7/)
-      - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Frozen_JDK7)
-      - Patch [Download Patch](https://github.com/nightw0lv/VDSystem/blob/master/Interlude/Frozen_JDK7/Patch.diff)
+    - [ ] FROZEN 1132 JDK7
+      - ~~Info Download Source~~
+      - ~~Release Download Compiled Jar~~
+      - ~~Patch Download Patch~~
     - [x] HELLAS
       - Info [Download Source](https://github.com/nightw0lv/VDSystem/tree/master/Interlude/Hellas/)
       - Release [Download Compiled Jar](https://github.com/nightw0lv/VDSystem/releases/tag/Hellas)
@@ -268,6 +272,10 @@
 
 
 **Chancelog**
+
+- Version 1.7
+  - Addition of L2Ranking.com Topsite
+  - Dropping support for JDK 1.7 (removed OLD frozen pack)
 
 - Version 1.6
   - Refactor Config for item delivery manager

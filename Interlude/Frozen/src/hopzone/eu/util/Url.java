@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -34,14 +34,14 @@ import java.util.Arrays;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public enum Url
 {
@@ -73,6 +73,9 @@ public enum Url
 	L2VOTES_INDIVIDUAL_URL_IP("https://l2votes.com/api.php?apiKey=" + Configurations.L2VOTES_API_KEY + "&ip=%IP%"),
 	L2VOTES_GLOBAL_URL("https://l2votes.com/api.php?apiKey=" + Configurations.L2VOTES_API_KEY),
 	L2VOTES_URL("https://l2votes.com/"),
+	L2RANKZONE_INDIVIDUAL_URL_IP("https://l2rankzone.com/api/vote-reward?apiKey=" + Configurations.L2RANKZONE_API_KEY + "&ip=%IP%"),
+	L2RANKZONE_GLOBAL_URL("https://l2rankzone.com/api/server-stats?apiKey=" + Configurations.L2RANKZONE_API_KEY),
+	L2RANKZONE_URL("https://l2rankzone.com/"),
 	DISCORD("https://discord.gg/Bf26EkYk"),
 	DENART_DESIGNS("https://www.denart-designs.com"),
 	DENART_DESIGNS_DONATE_PANEL("https://shop.denart-designs.com/product/auto-donate-panel-v4/"),

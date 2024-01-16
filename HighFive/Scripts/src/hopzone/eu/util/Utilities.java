@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 DenArt Designs
+ * Copyright (c) 2024 DenArt Designs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -52,14 +52,14 @@ import java.util.Locale;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.6
+ * Script version: 1.7
  * Pack Support: L2Scripts rev20720(2268)
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * How to install https://www.youtube.com/watch?v=yjCc0HUcErI&list=PLVFjZCVNx9SYzAT4Xp56cV9MKhhI3Sp2z
+ * https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Utilities
 {
@@ -74,14 +74,14 @@ public class Utilities
 		") ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;";
 	public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
 		"  `id` int(11) NOT NULL AUTO_INCREMENT," +
-		"  `topsite` enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS') NOT NULL," +
+		"  `topsite` enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS','L2RANKZONE') NOT NULL," +
 		"  `var` varchar(255) NOT NULL," +
 		"  `value` bigint(20) NOT NULL," +
 		"  `ip` varchar(65) NOT NULL," +
 		" PRIMARY KEY (id)" +
 		") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
-		"  `topsite` enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS') NOT NULL," +
+		"  `topsite` enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS','L2RANKZONE') NOT NULL," +
 		"  `var` varchar(255) NOT NULL," +
 		"  `value` bigint(20) NOT NULL," +
 		" PRIMARY KEY (topsite)" +
