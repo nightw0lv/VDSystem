@@ -47,14 +47,14 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: L2JDP
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public abstract class IResponse
 {
@@ -93,6 +93,21 @@ public abstract class IResponse
 			if (TOPSITE.equals("L2NETWORK"))
 			{
 				String urlParameters = "apiKey=" + Configurations.L2NETWORK_API_KEY + "&type=1&player=";
+				byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
+				int postDataLength = postData.length;
+				connection.setRequestMethod("POST");
+				connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+				connection.setDoOutput(true);
+				try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream()))
+				{
+					wr.write(postData);
+					// bypass manually the checks
+					responseCode = 200;
+				}
+			}
+			else if (TOPSITE.equals("TOP4TEAMBR"))
+			{
+				String urlParameters = "apiKey=" + Configurations.TOP4TEAMBR_API_KEY + "&type=1&player=";
 				byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
 				int postDataLength = postData.length;
 				connection.setRequestMethod("POST");

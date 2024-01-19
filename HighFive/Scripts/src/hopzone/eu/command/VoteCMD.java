@@ -56,14 +56,14 @@ import java.util.Objects;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: L2Scripts rev20720(2268)
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class VoteCMD implements IVoicedCommandHandler
 {
@@ -86,6 +86,7 @@ public class VoteCMD implements IVoicedCommandHandler
 		HOTSERVERS,
 		L2VOTES,
 		L2RANKZONE,
+		TOP4TEAMBR,
 	}
 
 	// flood protector list
@@ -152,7 +153,7 @@ public class VoteCMD implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes", "l2rankzone"
+		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes", "l2rankzone", "top4teambr"
 	};
 
 	@Override
@@ -179,6 +180,8 @@ public class VoteCMD implements IVoicedCommandHandler
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return false;
 		if (TOPSITE.equals("L2RANKZONE") && !Configurations.L2RANKZONE_INDIVIDUAL_REWARD)
+			return false;
+		if (TOPSITE.equals("TOP4TEAMBR") && !Configurations.TOP4TEAMBR_INDIVIDUAL_REWARD)
 			return false;
 
 		// vote info
@@ -264,6 +267,8 @@ public class VoteCMD implements IVoicedCommandHandler
 			sb.append("<tr><td align=right>L2VOTES:</td><td width=33%>.l2votes</td></tr>");
 		if (Configurations.L2RANKZONE_INDIVIDUAL_REWARD)
 			sb.append("<tr><td align=right>L2RANKZONE:</td><td width=33%>.l2rankzone</td></tr>");
+		if (Configurations.TOP4TEAMBR_INDIVIDUAL_REWARD)
+			sb.append("<tr><td align=right>TOP4TEAMBR:</td><td width=33%>.top4teambr</td></tr>");
 		sb.append("</table>");
 		sb.append("<img src=\"L2UI.SquareWhite\" width=300 height=1>");
 		sb.append("<img src=\"Sek.cbui371\" width=\"300\" height=\"1\">");

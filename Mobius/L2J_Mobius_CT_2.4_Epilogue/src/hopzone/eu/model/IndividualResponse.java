@@ -36,14 +36,14 @@ import hopzone.eu.vote.VDSystem;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Mobius CT 2.4 Epilogue
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class IndividualResponse extends IResponse
 {
@@ -117,6 +117,8 @@ public class IndividualResponse extends IResponse
 			case "L2RANKZONE":
 				_voteTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_vote_time"), "Europe/Athens");
 				_serverTime = Utilities.millisecondsFromString(response.getString(TOPSITE.toLowerCase() + "_server_time"), "Europe/Athens");
+				break;
+			case "TOP4TEAMBR":
 				break;
 			default:
 				_hasVoted = false;

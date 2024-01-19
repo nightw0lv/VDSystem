@@ -34,14 +34,14 @@ import java.util.Arrays;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Mobius Classic 3.0 TheKamael
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public enum Url
 {
@@ -76,6 +76,9 @@ public enum Url
 	L2RANKZONE_INDIVIDUAL_URL_IP("https://l2rankzone.com/api/vote-reward?apiKey=" + Configurations.L2RANKZONE_API_KEY + "&ip=%IP%"),
 	L2RANKZONE_GLOBAL_URL("https://l2rankzone.com/api/server-stats?apiKey=" + Configurations.L2RANKZONE_API_KEY),
 	L2RANKZONE_URL("https://l2rankzone.com/"),
+	TOP4TEAMBR_INDIVIDUAL_URL_IP("https://top.4teambr.com/index.php?a=in&u=" + Configurations.TOP4TEAMBR_USER_NAME + "&ipc=%IP%"),
+	TOP4TEAMBR_GLOBAL_URL("https://top.4teambr.com/api.php"),
+	TOP4TEAMBR_URL("https://top.4teambr.com/"),
 	DISCORD("https://discord.gg/Bf26EkYk"),
 	DENART_DESIGNS("https://www.denart-designs.com"),
 	DENART_DESIGNS_DONATE_PANEL("https://shop.denart-designs.com/product/auto-donate-panel-v4/"),

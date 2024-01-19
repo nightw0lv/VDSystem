@@ -32,14 +32,14 @@ import java.util.concurrent.ThreadLocalRandom;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Frozen 1118 Last beta branch https://app.assembla.com/spaces/L2jFrozenInterlude/subversion/source/1118/branches/Beta
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public final class Random
 {

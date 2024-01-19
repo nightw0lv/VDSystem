@@ -54,14 +54,14 @@ import java.util.Locale;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: L2JDP
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Utilities
 {
@@ -76,14 +76,14 @@ public class Utilities
 		   ") ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;";
 	public static final String CREATE_INDIVIDUAL_TABLE = "CREATE TABLE vds_individual (" +
 		   "		id int(11) NOT NULL AUTO_INCREMENT," +
-		   "		topsite enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS','L2RANKZONE') NOT NULL," +
+		   "		topsite enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS','L2RANKZONE','TOP4TEAMBR') NOT NULL," +
 		   "		var varchar(255) NOT NULL," +
 		   "		value bigint(20) NOT NULL," +
 		   "		ip varchar(65) NOT NULL," +
 		   " PRIMARY KEY (id)" +
 		   ") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	public static final String CREATE_GLOBAL_TABLE = "CREATE TABLE vds_global (" +
-		   "		topsite enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS','L2RANKZONE') NOT NULL," +
+		   "		topsite enum('HOPZONE','ITOPZ','HOPZONENET','L2NETWORK','L2JBRASIL','L2TOPGAMESERVER','L2VOTES','HOTSERVERS','L2RANKZONE','TOP4TEAMBR') NOT NULL," +
 		   "		var varchar(255) NOT NULL," +
 		   "		value bigint(20) NOT NULL," +
 		   " PRIMARY KEY (topsite)" +

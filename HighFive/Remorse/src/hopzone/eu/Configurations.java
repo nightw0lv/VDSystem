@@ -40,14 +40,14 @@ import java.util.Map;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Remorse (l2-scripts) classic 196 pack
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Configurations
 {
@@ -172,6 +172,18 @@ public class Configurations
 	// set l2rankzone individual variables
 	public static boolean L2RANKZONE_INDIVIDUAL_REWARD;
 	public static Map<Integer, List<Integer[]>> L2RANKZONE_INDIVIDUAL_REWARDS = new HashMap<>();
+	
+	// set top4teambr global reward variables
+	public static boolean TOP4TEAMBR_GLOBAL_REWARD;
+	public static String TOP4TEAMBR_API_KEY;
+	public static String TOP4TEAMBR_USER_NAME;
+	public static long TOP4TEAMBR_VOTE_CHECK_DELAY;
+	public static boolean TOP4TEAMBR_ANNOUNCE_STATISTICS;
+	public static int TOP4TEAMBR_VOTE_STEP;
+	public static Map<Integer, List<Integer[]>> TOP4TEAMBR_GLOBAL_REWARDS = new HashMap<>();
+	// set l2rankzone individual variables
+	public static boolean TOP4TEAMBR_INDIVIDUAL_REWARD;
+	public static Map<Integer, List<Integer[]>> TOP4TEAMBR_INDIVIDUAL_REWARDS = new HashMap<>();
 
 	/**
 	 * load config variables
@@ -586,7 +598,7 @@ public class Configurations
 				L2RANKZONE_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
-		// set l2votes individual variables
+		// set l2rankzone individual variables
 		L2RANKZONE_INDIVIDUAL_REWARD = ep.getProperty("L2RankZoneIndividualReward", false);
 		for (String individual : ep.getProperty("L2RankZoneIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
 		{
@@ -604,6 +616,52 @@ public class Configurations
 					 Integer.parseInt(parts[1].split("-")[2]),
 				});
 				L2RANKZONE_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+			}
+		}
+		
+		// set top4teambr global reward variables
+		TOP4TEAMBR_GLOBAL_REWARD = Boolean.parseBoolean(ep.getProperty("Top4TeamBRGlobalVoteReward", "false"));
+		TOP4TEAMBR_API_KEY = ep.getProperty("Top4TeamBRApiKey", "Hi");
+		TOP4TEAMBR_USER_NAME = ep.getProperty("Top4TeamBRUserName", "Nope");
+		TOP4TEAMBR_ANNOUNCE_STATISTICS = Boolean.parseBoolean(ep.getProperty("Top4TeamBRAnnounceStatistics", "false"));
+		TOP4TEAMBR_VOTE_CHECK_DELAY = Integer.parseInt(ep.getProperty("Top4TeamBRCheckDelay", "10"));
+		TOP4TEAMBR_VOTE_STEP = Integer.parseInt(ep.getProperty("Top4TeamBRVoteStep", "20"));
+		for (String global : ep.getProperty("Top4TeamBRGlobalRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
+		{
+			String[] global_split = global.split(";");
+			for (String split : global_split)
+			{
+				String[] parts = split.split(",");
+				// Start Join the map
+				List<Integer[]> temp = new ArrayList<>();
+				// Min-Max-Chance
+				temp.add(new Integer[]
+				{
+					 Integer.parseInt(parts[1].split("-")[0]),
+					 Integer.parseInt(parts[1].split("-")[1]),
+					 Integer.parseInt(parts[1].split("-")[2]),
+				});
+				TOP4TEAMBR_GLOBAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
+			}
+		}
+		// set top4teambr individual variables
+		TOP4TEAMBR_INDIVIDUAL_REWARD = Boolean.parseBoolean(ep.getProperty("Top4TeamBRIndividualReward", "false"));
+		for (String individual : ep.getProperty("Top4TeamBRIndividualRewards", "57,20000000-50000000-100;57,20000000-50000000-100").split(";"))
+		{
+			String[] individual_split = individual.split(";");
+			for (String split : individual_split)
+			{
+				String[] parts = split.split(",");
+				// Start Join the map
+				List<Integer[]> temp = new ArrayList<>();
+				// Min-Max-Chance
+				temp.add(new Integer[]
+				{
+					 Integer.parseInt(parts[1].split("-")[0]),
+					 Integer.parseInt(parts[1].split("-")[1]),
+					 Integer.parseInt(parts[1].split("-")[2]),
+				});
+				TOP4TEAMBR_INDIVIDUAL_REWARDS.put(Integer.parseInt(parts[0]), temp);
 			}
 		}
 

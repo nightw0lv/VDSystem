@@ -46,14 +46,14 @@ import java.util.stream.Collectors;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Mobius Classic 2.9.5 Saviors
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Global
 {
@@ -134,6 +134,13 @@ public class Global
 			VDSThreadPool.scheduleAtFixedRate(() -> execute("L2RANKZONE"), 100, Configurations.L2RANKZONE_VOTE_CHECK_DELAY * 1000);
 			_log.info(Global.class.getSimpleName() + ": L2RANKZONE reward started.");
 		}
+		
+		// check if allowed the TOP4TEAMBR reward to start
+		if (Configurations.TOP4TEAMBR_GLOBAL_REWARD)
+		{
+			VDSThreadPool.scheduleAtFixedRate(() -> execute("TOP4TEAMBR"), 100, Configurations.TOP4TEAMBR_VOTE_CHECK_DELAY * 1000);
+			_log.info(Global.class.getSimpleName() + ": TOP4TEAMBR reward started.");
+		}
 	}
 
 	/**
@@ -198,7 +205,11 @@ public class Global
 			}
 			case "L2RANKZONE" -> {
 				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
-				Gui.getInstance().UpdateVotesStats(serverVotes);
+				Gui.getInstance().UpdateL2RankZoneStats(serverVotes);
+			}
+			case "TOP4TEAMBR" -> {
+				Gui.getInstance().ConsoleWrite(TOPSITE + " Server Votes: " + serverVotes + " votes.");
+				Gui.getInstance().UpdateTop4TeamBRStats(serverVotes);
 			}
 		}
 		storedVotes = Utilities.selectGlobalVar(TOPSITE, "votes");
@@ -331,7 +342,7 @@ public class Global
 			}
 			case "L2RANKZONE" -> {
 				if (Configurations.L2RANKZONE_ANNOUNCE_STATISTICS)
-					Gui.getInstance().UpdateVotesStats(serverVotes);
+					Gui.getInstance().UpdateL2RankZoneStats(serverVotes);
 				// check for vote step reward
 				if (serverVotes >= storedVotes + Configurations.L2RANKZONE_VOTE_STEP)
 				{
@@ -340,6 +351,18 @@ public class Global
 				}
 				// announce next reward
 				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.L2RANKZONE_VOTE_STEP) + " votes!");
+			}
+			case "TOP4TEAMBR" -> {
+				if (Configurations.TOP4TEAMBR_ANNOUNCE_STATISTICS)
+					Gui.getInstance().UpdateTop4TeamBRStats(serverVotes);
+				// check for vote step reward
+				if (serverVotes >= storedVotes + Configurations.TOP4TEAMBR_VOTE_STEP)
+				{
+					// reward all online players
+					reward(TOPSITE);
+				}
+				// announce next reward
+				Utilities.announce(TOPSITE, "Next reward at " + (storedVotes + Configurations.TOP4TEAMBR_VOTE_STEP) + " votes!");
 			}
 		}
 	}

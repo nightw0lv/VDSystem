@@ -37,14 +37,14 @@ import java.util.Set;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Mobius CT 2.4 Epilogue
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public enum Rewards
 {
@@ -65,7 +65,9 @@ public enum Rewards
 	L2VOTES_INDIVIDUAL_REWARDS(Configurations.L2VOTES_INDIVIDUAL_REWARDS),
 	L2VOTES_GLOBAL_REWARDS(Configurations.L2VOTES_GLOBAL_REWARDS),
 	L2RANKZONE_INDIVIDUAL_REWARDS(Configurations.L2RANKZONE_INDIVIDUAL_REWARDS),
-	L2RANKZONE_GLOBAL_REWARDS(Configurations.L2RANKZONE_GLOBAL_REWARDS);
+	L2RANKZONE_GLOBAL_REWARDS(Configurations.L2RANKZONE_GLOBAL_REWARDS),
+	TOP4TEAMBR_INDIVIDUAL_REWARDS(Configurations.TOP4TEAMBR_INDIVIDUAL_REWARDS),
+	TOP4TEAMBR_GLOBAL_REWARDS(Configurations.TOP4TEAMBR_GLOBAL_REWARDS);
 
 	private final Map<Integer, List<Long[]>> _list;
 	private static final Rewards[] _rewards = values();

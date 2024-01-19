@@ -37,14 +37,14 @@ import java.util.Map;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Mobius Classic 2.5 Zaken
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Json
 {
@@ -197,6 +197,14 @@ public class Json
 					_log.info(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
 				if (split[0].contains("currentVotes"))
 					data.putIfAbsent(TOPSITE.toLowerCase() + "_votes", split[1].trim());
+			}
+			
+			if (TOPSITE.equals("TOP4TEAMBR"))
+			{
+				if (Configurations.DEBUG)
+					_log.info(TOPSITE + " trimmed line :" + s.trim());
+				data.putIfAbsent(TOPSITE.toLowerCase() + "_votes", s.trim());
+				return;
 			}
 		}
 		catch (IndexOutOfBoundsException ioobe)
@@ -355,6 +363,14 @@ public class Json
 					data.putIfAbsent(TOPSITE.toLowerCase() + "_vote_time", split[1].trim() + ":" + split[2].trim() + ":" + split[3].trim());
 				if (split[0].contains("serverTime") && split.length >= 3)
 					data.putIfAbsent(TOPSITE.toLowerCase() + "_server_time", split[1].trim() + ":" + split[2].trim() + ":" + split[3].trim());
+			}
+			
+			if (TOPSITE.equals("TOP4TEAMBR"))
+			{
+				if (Configurations.DEBUG)
+					_log.info(TOPSITE + " trimmed line :" + s.trim());
+				data.putIfAbsent(TOPSITE.toLowerCase() + "_voted", s.trim());
+				return;
 			}
 		}
 		catch (IndexOutOfBoundsException ioobe)

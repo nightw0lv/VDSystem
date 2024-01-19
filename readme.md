@@ -35,6 +35,8 @@
    - [x] L2Votes Reward Individual (Player command)
    - [x] L2RANKZONE Reward Global (Automatic)
    - [x] L2RANKZONE Reward Individual (Player command)
+   - [x] Top4TeamBR Reward Global (Automatic)
+   - [x] Top4TeamBR Reward Individual (Player command)
 - **Supported vote sites**
    - [x] HOPZONE Eu (NEW)
       - Website [https://hopzone.eu/](https://hopzone.eu/)
@@ -54,6 +56,8 @@
       - Website [https://l2votes.com/](https://l2votes.com/)
    - [x] L2RANKZONE
       - Website [https://l2rankzone.com/](https://l2rankzone.com/)
+   - [x] TOP4TEAMBR
+      - Website [https://top.4teambr.com/](https://top.4teambr.com/)
   - Will not be added to list
     - [x] ~~L2TOPCO~~
     - [x] ~~TOPZONE~~
@@ -273,8 +277,12 @@
 
 **Chancelog**
 
+- Version 1.8
+  - Addition of Top.4teambr.com Topsite
+  - Fix typos
+
 - Version 1.7
-  - Addition of L2Ranking.com Topsite
+  - Addition of L2Rankzone.com Topsite
   - Dropping support for JDK 1.7 (removed OLD frozen pack)
 
 - Version 1.6

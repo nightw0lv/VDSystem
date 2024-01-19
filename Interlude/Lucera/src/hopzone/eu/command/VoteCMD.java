@@ -53,14 +53,14 @@ import java.util.*;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Lucera
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class VoteCMD extends Functions implements IVoicedCommandHandler
 {
@@ -83,6 +83,7 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		HOTSERVERS,
 		L2VOTES,
 		L2RANKZONE,
+		TOP4TEAMBR,
 	}
 
 	// flood protector list
@@ -149,7 +150,7 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 	// commands
 	public final static String[] COMMANDS =
 	{
-		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes", "l2rankzone"
+		"vote", "hopzone", "itopz", "hopzonenet", "l2jbrasil", "l2network", "l2topgameserver", "hotservers", "l2votes", "l2rankzone", "top4teambr"
 	};
 
 	@Override
@@ -188,6 +189,8 @@ public class VoteCMD extends Functions implements IVoicedCommandHandler
 		if (TOPSITE.equals("L2VOTES") && !Configurations.L2VOTES_INDIVIDUAL_REWARD)
 			return;
 		if (TOPSITE.equals("L2RANKZONE") && !Configurations.L2RANKZONE_INDIVIDUAL_REWARD)
+			return;
+		if (TOPSITE.equals("TOP4TEAMBR") && !Configurations.TOP4TEAMBR_INDIVIDUAL_REWARD)
 			return;
 
 		// vote info

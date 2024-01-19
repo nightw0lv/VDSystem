@@ -40,14 +40,14 @@ import java.net.URL;
  * VDS Stands for: Vote Donation System
  * Script website: https://itopz.com/
  * Partner website: https://hopzone.eu/
- * Script version: 1.7
+ * Script version: 1.8
  * Pack Support: Mobius Classic 2.9.5 Saviors
  * <p>
  * Freemium Donate Panel V4: https://www.denart-designs.com/
  * Download: https://mega.nz/folder/6oxUyaIJ#qQDUXeoXlPvBjbPMDYzu-g
  * Buy: https://shop.denart-designs.com/product/auto-donate-panel-v4/
  *
- * https://github.com/nightw0lv/VDSystem/tree/master/Guide
+ * Quick Guide: https://github.com/nightw0lv/VDSystem/tree/master/Guide
  */
 public class Gui extends JFrame
 {
@@ -61,7 +61,7 @@ public class Gui extends JFrame
 	private Box box;
 
 	// label
-	private JLabel HOPZONE, ITOPZ, HOPZONENET, L2TOPGAMESERVER, L2NETWORK, TOPL2JBRASIL, L2VOTES, HOTSERVERS, L2RANKZONE;
+	private JLabel HOPZONE, ITOPZ, HOPZONENET, L2TOPGAMESERVER, L2NETWORK, TOPL2JBRASIL, L2VOTES, HOTSERVERS, L2RANKZONE, TOP4TEAMBR;
 	
 	/**
 	 * Constructor load gui
@@ -169,6 +169,12 @@ public class Gui extends JFrame
 		L2RANKZONE.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
 		L2RANKZONE.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
 		L2RANKZONE.setText("Server Votes: votes L2RANKZONE.");
+		
+		// set TOP4TEAMBR statistics label info
+		TOP4TEAMBR = new JLabel("Waiting for statistics info TOP4TEAMBR.");
+		TOP4TEAMBR.setBounds(1, 150, Configurations.VDS_CONSOLE_WIDTH, 5);
+		TOP4TEAMBR.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+		TOP4TEAMBR.setText("Server Votes: votes TOP4TEAMBR.");
 
 		// Create a JTextArea
 		console = new JTextArea("Server info started.");
@@ -420,6 +426,27 @@ public class Gui extends JFrame
 	}
 	
 	/**
+	 * update statistics
+	 *
+	 * @param serverVotes int
+	 */
+	public void UpdateTop4TeamBRStats(int serverVotes)
+	{
+		if (!Configurations.VDS_CONSOLE_ENABLE)
+			return;
+		
+		TOP4TEAMBR.setText("Top4TeamBR Server Votes: " + serverVotes + "votes.");
+		if (serverVotes < 0)
+			TOP4TEAMBR.setForeground(Color.RED);
+		else
+			TOP4TEAMBR.setForeground(Color.GREEN);
+		if (Configurations.TOP4TEAMBR_VOTE_CHECK_DELAY > 60)
+			TOP4TEAMBR.setToolTipText("<html>Statistics up date every " + Configurations.TOP4TEAMBR_VOTE_CHECK_DELAY / 60 + " minutes</html>");
+		else
+			TOP4TEAMBR.setToolTipText("<html>Statistics up date every " + Configurations.TOP4TEAMBR_VOTE_CHECK_DELAY + " seconds</html>");
+	}
+	
+	/**
 	 * Create Menu items
 	 */
 	public void addMenuItems()
@@ -487,6 +514,12 @@ public class Gui extends JFrame
 		run_l2rankzone_global_reward.addActionListener(al -> Global.getInstance().execute("L2RANKZONE"));
 		run_l2rankzone_global_reward.setToolTipText("<html>Run global reward</html>");
 		menuServer.add(run_l2rankzone_global_reward);
+		
+		// run Top4TeamBR global reward
+		JMenuItem run_Top4TeamBR_global_reward = new JMenuItem("Run Top4TeamBR Global");
+		run_Top4TeamBR_global_reward.addActionListener(al -> Global.getInstance().execute("TOP4TEAMBR"));
+		run_Top4TeamBR_global_reward.setToolTipText("<html>Run global reward</html>");
+		menuServer.add(run_Top4TeamBR_global_reward);
 
 		// server info
 		JMenuItem server_info = new JMenuItem("Server info");
@@ -582,6 +615,8 @@ public class Gui extends JFrame
 		box.add(HOTSERVERS);
 		// L2RANKZONE
 		box.add(L2RANKZONE);
+		// TOP4TEAMBR
+		box.add(TOP4TEAMBR);
 	}
 
 	/**
