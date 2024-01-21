@@ -77,7 +77,7 @@ public enum Url
 	L2RANKZONE_GLOBAL_URL("https://l2rankzone.com/api/server-stats?apiKey=" + Configurations.L2RANKZONE_API_KEY),
 	L2RANKZONE_URL("https://l2rankzone.com/"),
 	TOP4TEAMBR_INDIVIDUAL_URL_IP("https://top.4teambr.com/index.php?a=in&u=" + Configurations.TOP4TEAMBR_USER_NAME + "&ipc=%IP%"),
-	TOP4TEAMBR_GLOBAL_URL("https://top.4teambr.com/api.php"),
+	TOP4TEAMBR_GLOBAL_URL("https://top.4teambr.com/index.php?a=in&u=" + Configurations.TOP4TEAMBR_USER_NAME + "&ipc=%IP%"),
 	TOP4TEAMBR_URL("https://top.4teambr.com/"),
 	DISCORD("https://discord.gg/Bf26EkYk"),
 	DENART_DESIGNS("https://www.denart-designs.com"),
