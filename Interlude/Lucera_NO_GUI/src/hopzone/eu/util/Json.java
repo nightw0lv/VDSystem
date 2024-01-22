@@ -200,9 +200,11 @@ public class Json
 			
 			if (TOPSITE.equals("TOP4TEAMBR"))
 			{
+				split = s.split(":");
 				if (Configurations.DEBUG)
-					_log.info(TOPSITE + " trimmed line :" + s.trim());
-				data.putIfAbsent(TOPSITE.toLowerCase() + "_votes", s.trim());
+					_log.info(TOPSITE + " trimmed line :" + split[0].trim() + ":" + split[1].trim());
+				if (split[0].contains("votes"))
+					data.putIfAbsent(TOPSITE.toLowerCase() + "_votes", split[1].trim());
 				return;
 			}
 		}
